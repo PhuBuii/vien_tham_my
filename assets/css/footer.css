@@ -1,0 +1,120 @@
+.footer {
+  background-color: #b37917;
+  color: white;
+  font-family: sans-serif;
+  margin-top: 166px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 60px;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-logo > div {
+  display: flex;
+  flex-direction: column;
+}
+.footer-logo .logo {
+  width: 370px;
+  height: 75.91px;
+  margin-bottom: 33px;
+}
+
+.footer-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.slogan {
+  color: var(--Gold-light, #ffeed9);
+  font-family: Manrope;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+}
+
+.footer-info {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-info h4 {
+  color: var(--Gold-light, #ffeed9);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+  margin-bottom: 22px;
+}
+
+.footer-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-info li {
+  color: var(--Gold-light, #ffeed9);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 140%;
+  margin-bottom: 10px;
+}
+.footer-info li img {
+  margin-right: 10px;
+}
+.social-icons {
+  display: flex;
+  width: 200px;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 6px 5px;
+  flex-wrap: wrap;
+}
+
+.social-icons a {
+  display: flex;
+  width: 46px;
+  height: 46px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 100px;
+  background: var(--Wireframe-20, #dde1e6);
+}
+.footer-certificate {
+  display: flex;
+  justify-content: center;
+}
+.footer-certificate img {
+  width: 120px;
+  height: 43px;
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+.footer-bottom {
+  background: var(--Gold-light, #ffeed9);
+  color: var(--Gold-main, #b37917);
+  text-align: center;
+  font-family: Manrope;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  padding: 38px 0;
+}

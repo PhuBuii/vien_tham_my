@@ -1,0 +1,92 @@
+@media (max-width: 1024px) {
+  .footer-container {
+    flex-direction: column;
+    padding: 46px 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-content {
+    width: 276px;
+  }
+
+  .slogan {
+    color: var(--Gold-light, #ffeed9);
+    text-align: center;
+    font-family: Manrope;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%;
+  }
+
+  .footer-logo {
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+
+  .footer-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .footer-info h4,
+  .footer-info li {
+    text-align: center;
+  }
+
+  .footer-info h4 {
+    color: var(--Gold-light, #ffeed9);
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+  }
+
+  .footer-info li {
+    color: var(--Gold-light, #ffeed9);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%;
+    margin-bottom: 4px;
+  }
+  .social-icons {
+    justify-content: center;
+  }
+
+  .footer-certificate {
+    gap: 10px;
+    margin-top: 60px;
+  }
+
+  .footer-certificate img {
+    margin-right: 0;
+  }
+
+  .footer-bottom {
+    padding: 20px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slogan {
+    font-size: 18px;
+  }
+
+  .footer-info h4 {
+    font-size: 16px;
+  }
+
+  .footer-info li {
+    font-size: 13px;
+  }
+
+  .social-icons a {
+    width: 38px;
+    height: 38px;
+  }
+}

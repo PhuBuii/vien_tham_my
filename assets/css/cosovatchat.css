@@ -1,0 +1,165 @@
+.banner img {
+  width: 100%;
+}
+
+section {
+  margin-top: 156px;
+}
+.tab-section {
+  text-align: center;
+}
+
+.container-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-title {
+  color: var(--Gold-main, #b37917);
+  text-align: center;
+  font-family: Manrope;
+  font-size: 100px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  max-width: 1473px;
+  margin-bottom: 30px;
+}
+
+.section-desc {
+  margin-top: 30px;
+  color: var(--Wireframe-60, #697077);
+  text-align: center;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  max-width: 772px;
+  margin-bottom: 58px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  padding: 10px 14px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 5px solid transparent;
+}
+
+.tab-button.active {
+  color: #b37917;
+  border-color: #b37917;
+}
+
+.tab-content {
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.tab-content.active {
+  display: grid;
+}
+
+.tab-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+.slider {
+  position: relative;
+  overflow: hidden;
+  padding: 0 60px; /* tạo khoảng trống cho nút trái/phải */
+}
+
+.slider-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease;
+}
+
+.slider-card {
+  flex: 0 0 calc(100% / 6);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: opacity 0.3s;
+  background-color: transparent;
+}
+
+.slider-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.slider-card.fade {
+  opacity: 0.2;
+}
+
+.card-info {
+  padding: 12px;
+  text-align: center;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  background-color: white;
+  border: 2px solid #f5b100; /* viền vàng */
+  color: #f5b100; /* icon vàng */
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.slider-btn:hover {
+  background-color: #fef5dd;
+}
+
+.slider-btn.prev {
+  left: 10px;
+}
+
+.slider-btn.next {
+  right: 10px;
+}
+
+/* Dot */
+.slider-dots {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 0 4px;
+  border-radius: 50%;
+  background: #fce6b3; /* vàng nhạt */
+  transition: background 0.3s;
+}
+
+.dot.active {
+  background: #f5b100; /* vàng đậm */
+}
