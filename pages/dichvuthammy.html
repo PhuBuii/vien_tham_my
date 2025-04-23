@@ -6,6 +6,7 @@
     <title>Thẫm mỹ DVA</title>
     <link rel="stylesheet" href="../assets/css/global.css" />
     <link rel="stylesheet" href="../assets/css/cosovatchat.css" />
+    <link rel="stylesheet" href="../assets/css/dichvuthammy.css" />
   </head>
   <body>
     <div class="background"></div>
@@ -42,7 +43,7 @@
             <button class="tab-button" data-tab="service-6">Phun mi mắt</button>
           </div>
 
-          <div class="tab-content active" id="service-1">
+          <div class="tab-card-content active" id="service-1">
             <img src="../assets/image/tabs/image_1.png" />
             <img src="../assets/image/tabs/image_2.png" />
             <img src="../assets/image/tabs/image_3.png" />
@@ -50,7 +51,7 @@
             <img src="../assets/image/tabs/image_5.png" />
             <img src="../assets/image/tabs/image_6.png" />
           </div>
-          <div class="tab-content" id="service-2">
+          <div class="tab-card-content" id="service-2">
             <img src="../assets/image/tabs/image_7.png" />
             <img src="../assets/image/tabs/image_5.png" />
             <img src="../assets/image/tabs/image_4.png" />
@@ -58,7 +59,7 @@
             <img src="../assets/image/tabs/image_11.png" />
             <img src="../assets/image/tabs/image_8.png" />
           </div>
-          <div class="tab-content" id="service-3">
+          <div class="tab-card-content" id="service-3">
             <img src="../assets/image/tabs/image_3.png" />
             <img src="../assets/image/tabs/image_4.png" />
             <img src="../assets/image/tabs/image_8.png" />
@@ -66,7 +67,23 @@
             <img src="../assets/image/tabs/image_10.png" />
             <img src="../assets/image/tabs/image_1.png" />
           </div>
-          <div class="tab-content" id="service-4">
+          <div class="tab-card-content" id="service-4">
+            <img src="../assets/image/tabs/image_10.png" />
+            <img src="../assets/image/tabs/image_9.png" />
+            <img src="../assets/image/tabs/image_4.png" />
+            <img src="../assets/image/tabs/image_5.png" />
+            <img src="../assets/image/tabs/image_2.png" />
+            <img src="../assets/image/tabs/image_3.png" />
+          </div>
+          <div class="tab-card-content" id="service-5">
+            <img src="../assets/image/tabs/image_10.png" />
+            <img src="../assets/image/tabs/image_9.png" />
+            <img src="../assets/image/tabs/image_4.png" />
+            <img src="../assets/image/tabs/image_5.png" />
+            <img src="../assets/image/tabs/image_2.png" />
+            <img src="../assets/image/tabs/image_3.png" />
+          </div>
+          <div class="tab-card-content" id="service-6">
             <img src="../assets/image/tabs/image_10.png" />
             <img src="../assets/image/tabs/image_9.png" />
             <img src="../assets/image/tabs/image_4.png" />
@@ -77,9 +94,75 @@
         </div>
       </section>
       <!--Section-->
-      <section class="tab-section">
-        <div class="container"></div>
-      </section>
+      <div class="branch-wrapper">
+        <!-- Cột trái: danh sách chi nhánh -->
+        <div class="branch-left">
+          <div class="search-box">
+            <input type="text" placeholder="Tìm kiếm chi nhánh gần bạn nhất" />
+            <button>🔍</button>
+          </div>
+
+          <div class="branch-list">
+            <div class="branch-card">
+              <img
+                src="https://via.placeholder.com/300x130"
+                alt="Chi nhánh 1"
+              />
+              <div class="branch-info">
+                <h4>Chi nhánh</h4>
+                <p>Địa chỉ: 154 ABC, Dương ĐKCA, Phường B, Quận C, Thành phố</p>
+                <span>📞 1900 2222</span> | <span>🕐 08:00 - 20:00</span>
+              </div>
+            </div>
+            <div class="branch-card">
+              <img
+                src="https://via.placeholder.com/300x130"
+                alt="Chi nhánh 2"
+              />
+              <div class="branch-info">
+                <h4>Chi nhánh</h4>
+                <p>Địa chỉ: 154 ABC, Dương ĐKCA, Phường B, Quận C, Thành phố</p>
+                <span>📞 1900 2222</span> | <span>🕐 08:00 - 20:00</span>
+              </div>
+            </div>
+            <div class="branch-card">
+              <img
+                src="https://via.placeholder.com/300x130"
+                alt="Chi nhánh 3"
+              />
+              <div class="branch-info">
+                <h4>Chi nhánh</h4>
+                <p>Địa chỉ: 154 ABC, Dương ĐKCA, Phường B, Quận C, Thành phố</p>
+                <span>📞 1900 2222</span> | <span>🕐 08:00 - 20:00</span>
+              </div>
+            </div>
+            <div class="branch-card">
+              <img
+                src="https://via.placeholder.com/300x130"
+                alt="Chi nhánh 4"
+              />
+              <div class="branch-info">
+                <h4>Chi nhánh</h4>
+                <p>Địa chỉ: 154 ABC, Dương ĐKCA, Phường B, Quận C, Thành phố</p>
+                <span>📞 1900 2222</span> | <span>🕐 08:00 - 20:00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cột phải: Google Map -->
+        <div class="branch-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.748191856314!2d106.66971397675596!3d10.98236955535773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d1213a32967d%3A0x78a82664a343892d!2zMTQ1IMSQLiBQaMO6IEzhu6NpLCBQaMO6IEzhu6NpLCBUaOG7pyBE4bqndSBN4buZdCwgQsOsbmggRMawxqFuZyA3NTAwMCwgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1745429970317!5m2!1sen!2s"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
     </div>
     <!-- Footer section -->
     <footer class="footer"></footer>
