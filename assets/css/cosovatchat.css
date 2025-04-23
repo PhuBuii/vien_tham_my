@@ -46,6 +46,7 @@ section {
   justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
+  border-bottom: 1px solid #dfc7a8;
 }
 
 .tab-button {
