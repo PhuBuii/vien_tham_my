@@ -3,15 +3,12 @@ document.querySelectorAll(".tabs").forEach((tabGroup) => {
 
   tabGroup.querySelectorAll(".tab-button").forEach((btn) => {
     btn.addEventListener("click", () => {
-      // Xóa trạng thái active cũ
       tabGroup
         .querySelectorAll(".tab-button")
         .forEach((b) => b.classList.remove("active"));
       document
         .querySelectorAll(`[id^="${group}-"]`)
         .forEach((c) => c.classList.remove("active"));
-
-      // Gán mới
       btn.classList.add("active");
       document.getElementById(btn.dataset.tab).classList.add("active");
     });

@@ -72,6 +72,17 @@ body {
   z-index: 0;
 }
 
+.post-background {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 449px;
+  flex-shrink: 0;
+  opacity: 0.4;
+  background: linear-gradient(180deg, #f8cc6d -187.39%, #fff 60.47%), #edecec;
+  z-index: 0;
+}
 .main-content {
   position: relative;
   z-index: 1;

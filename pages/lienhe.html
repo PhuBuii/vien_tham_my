@@ -27,20 +27,35 @@
               kost ter lanade.
             </p>
           </div>
-          <div class="contact-form">
-            <div class="form-group">
-              <input type="text" placeholder="Họ và tên*" />
+          <form action="#">
+            <div class="form-row">
+              <div class="input-data">
+                <input
+                  type="text"
+                  name="fullname"
+                  required
+                  placeholder="Họ và tên"
+                />
+                <div class="underline"></div>
+              </div>
             </div>
-            <div class="form-group">
-              <input type="text" placeholder="Số điện thoại*" />
+            <div class="form-row">
+              <div class="input-data">
+                <input
+                  type="text"
+                  name="phone"
+                  required
+                  placeholder="Số điện thoại"
+                />
+                <div class="underline"></div>
+              </div>
             </div>
-            <div class="form-group">
-              <textarea placeholder="Nội dung*"></textarea>
+            <div class="form-row">
+              <button class="submit-btn" type="submit" value="ĐĂNG KÝ NGAY">
+                ĐĂNG KÝ NGAY
+              </button>
             </div>
-            <div class="form-submit">
-              <button>GỬI LIÊN HỆ</button>
-            </div>
-          </div>
+          </form>
         </div>
       </section>
 
