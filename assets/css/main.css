@@ -931,3 +931,63 @@ form {
   background: #8f5800;
   cursor: pointer;
 }
+
+.contact-container {
+  padding: 0 250px;
+}
+
+.contact-form-container {
+  padding: 0 210px;
+}
+.diva-info-section {
+  border-radius: 80px;
+  padding: 20px 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin: 40px auto;
+  max-width: 1200px;
+  border: 2px solid #00a3ff;
+}
+
+.container-diva {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.container-diva .info {
+  flex: 1;
+  font-family: "Segoe UI", sans-serif;
+  color: #533a28;
+}
+
+.container-diva .info h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #b67d17;
+}
+
+.container-diva .info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.container-diva .info li {
+  font-size: 16px;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.container-diva .info li strong {
+  font-weight: bold;
+  color: #000;
+}
+
+/* Ảnh tòa nhà làm nền block phải */
+.container-diva .dva-image {
+  flex: 1;
+  min-height: 380px;
+  background: url("../image/DVA_house.png") no-repeat right center;
+  background-size: contain;
+  border-radius: 12px;
+}
