@@ -175,8 +175,8 @@ section {
 }
 
 .slider-card.fade {
-  opacity: 0.3;
-  transition: opacity 0.3s ease;
+  opacity: 0.2;
+  transition: opacity 0.5s ease;
 }
 
 .slider-card {
@@ -302,8 +302,7 @@ section {
   border-radius: 10px;
   background: var(--Gold-light-yellow, #fff7e2);
   display: flex;
-  width: 340px;
-  height: 316px;
+  max-width: 460px;
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
@@ -473,23 +472,15 @@ iframe {
 .branch-search {
   margin-top: 40px;
   margin-bottom: 20px;
+  display: flex;
   text-align: center;
-}
-
-.branch-search input {
-  width: 100%;
-  max-width: 400px;
-  padding: 12px 20px;
-  border: 1px solid #ccc;
-  border-radius: 30px;
-  font-size: 14px;
-  background: #f7f7f7;
+  justify-content: center;
 }
 
 .branch-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
+  gap: 20px;
   margin-bottom: 64px;
 }
 
@@ -501,9 +492,20 @@ iframe {
 }
 
 .branch-card h4 {
-  margin: 0 0 8px;
+  margin: 0 0 12px;
   color: #b37917;
   font-size: 16px;
+}
+
+.branch-card ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.branch-card li {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 8px;
 }
 
 .branch-card p {
@@ -872,16 +874,17 @@ form {
 } */
 
 .input-data input::placeholder {
-  color: var(--Wireframe-50, #878d96);
-  font-weight: 300;
-  font-size: 14px;
+  color: var(--Wireframe-80, #343a3f);
   text-align: center;
-  line-height: 1.5;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
 }
 
 .input-data input:focus::placeholder {
   color: transparent;
 }
+
 /* .input-data input:valid ~ label {
   opacity: 1;
   top: 0;
@@ -911,7 +914,7 @@ form {
 }
 
 .submit-btn {
-  display: flex;
+  display: inline-flex;
   padding: 10px 40px;
   justify-content: center;
   align-items: center;
@@ -936,58 +939,91 @@ form {
   padding: 0 250px;
 }
 
-.contact-form-container {
-  padding: 0 210px;
-}
 .diva-info-section {
-  border-radius: 80px;
-  padding: 20px 40px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  margin: 40px auto;
-  max-width: 1200px;
-  border: 2px solid #00a3ff;
+  margin-top: 197px;
+  position: relative;
+}
+.diva-info-background {
+  position: relative;
+}
+.diva-info-background img {
+  width: 100%;
+  height: 469px;
+}
+.sub-background {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  right: 0;
+}
+.sub-background img {
+  height: 140%;
+  position: relative;
+  transform: translateY(-29%);
+}
+.diva-info {
+  position: absolute;
+  top: 0;
+}
+.diva-info .content {
+  padding: 60px 120px;
+}
+.contact-form-container {
+  padding: 0 267px;
+}
+.diva-info .title {
+  color: var(--Gold-main, #b37917);
+  font-size: 54px;
+  font-weight: 400;
 }
 
-.container-diva {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-}
-
-.container-diva .info {
-  flex: 1;
-  font-family: "Segoe UI", sans-serif;
-  color: #533a28;
-}
-
-.container-diva .info h2 {
-  font-size: 32px;
-  margin-bottom: 20px;
-  color: #b67d17;
-}
-
-.container-diva .info ul {
-  list-style: none;
-  padding: 0;
-}
-
-.container-diva .info li {
+.diva-info .contact-list {
+  color: var(--Wireframe-80, #343a3f);
   font-size: 16px;
-  margin-bottom: 12px;
-  line-height: 1.6;
+  font-weight: 400;
+  margin-left: 30px;
+  margin-top: 10px;
 }
 
-.container-diva .info li strong {
-  font-weight: bold;
-  color: #000;
+.diva-info .contact-list li {
+  margin-bottom: 5px;
 }
 
-/* Ảnh tòa nhà làm nền block phải */
-.container-diva .dva-image {
-  flex: 1;
-  min-height: 380px;
-  background: url("../image/DVA_house.png") no-repeat right center;
-  background-size: contain;
-  border-radius: 12px;
+.diva-info .contact-list strong {
+  font-weight: 700;
+}
+.contact-container .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.contact-container .form-label {
+  color: var(--Wireframe-80, #343a3f);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+textarea {
+  width: 100%;
+  padding-bottom: 20px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid #c1c7cd;
+  background-color: transparent;
+  outline: none;
+  text-align: center;
+}
+
+textarea::placeholder {
+  color: var(--Wireframe-80, #343a3f);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.social-icons a:hover {
+  opacity: 0.8;
 }
