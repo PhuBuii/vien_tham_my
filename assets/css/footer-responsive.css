@@ -1,28 +1,52 @@
-@media (max-width: 1024px) {
+/* --- Responsive Breakpoints --- */
+@media (max-width: 1200px) {
   .footer-container {
     flex-direction: column;
-    padding: 46px 20px;
     align-items: center;
     text-align: center;
   }
-
-  .footer-content {
-    width: 276px;
-  }
-
-  .slogan {
-    color: var(--Gold-light, #ffeed9);
-    text-align: center;
-    font-family: Manrope;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 130%;
-  }
-
-  .footer-logo {
+  .footer-info {
     justify-content: center;
-    margin-bottom: 30px;
+    text-align: center;
+  }
+  .footer-logo {
+    margin-bottom: 20px;
+  }
+  .footer-container {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .slogan {
+    font-size: 20px;
+  }
+  .dva-facebook {
+    margin-bottom: 0;
+  }
+  .footer-container {
+    padding: 30px;
+  }
+  .footer-info h4 {
+    margin-bottom: 14px;
+  }
+  .footer-content {
+    margin-top: 18px;
+    gap: 36px;
+  }
+  .footer-logo .logo {
+    max-width: 286px;
+    margin-bottom: 18px;
+  }
+  .footer-info li {
+    margin-bottom: 4px;
+  }
+
+  .footer-logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .footer-info {
@@ -30,63 +54,34 @@
     align-items: center;
     gap: 30px;
   }
-
-  .footer-info h4,
-  .footer-info li {
-    text-align: center;
-  }
-
-  .footer-info h4 {
-    color: var(--Gold-light, #ffeed9);
-    text-align: center;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 120%;
-  }
-
-  .footer-info li {
-    color: var(--Gold-light, #ffeed9);
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 140%;
-    margin-bottom: 4px;
+  .footer-certificate {
+    justify-content: center;
   }
   .social-icons {
     justify-content: center;
   }
-
-  .footer-certificate {
-    gap: 10px;
-    margin-top: 60px;
-  }
-
-  .footer-certificate img {
-    margin-right: 0;
-  }
-
   .footer-bottom {
-    padding: 20px;
-    font-size: 11px;
+    padding: 41px 31px;
+    margin-top: 67px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
+  .footer-bottom {
+    margin-top: 127px;
+  }
   .slogan {
-    font-size: 18px;
-  }
-
-  .footer-info h4 {
+    text-align: center;
     font-size: 16px;
+    font-weight: 700;
+  }
+  .dva-facebook {
+    max-width: max-content;
   }
 
-  .footer-info li {
-    font-size: 13px;
+  .footer-container {
+    padding: 20px;
   }
-
-  .social-icons a {
-    width: 38px;
-    height: 38px;
-  }
+}
+@media (max-width: 376px) {
 }

@@ -3,6 +3,7 @@
   color: white;
   font-family: sans-serif;
   margin-top: 166px;
+  position: relative;
 }
 
 .footer-container {
@@ -22,9 +23,10 @@
   display: flex;
   flex-direction: column;
 }
-.footer-logo .logo {
-  width: 370px;
-  height: 75.91px;
+.footer-logo .logo,
+.dva-facebook {
+  max-width: 370px;
+  width: 100%;
   margin-bottom: 33px;
 }
 
@@ -39,23 +41,19 @@
   color: var(--Gold-light, #ffeed9);
   font-family: Manrope;
   font-size: 24px;
-  font-style: normal;
   font-weight: 700;
-  line-height: 130%;
+  max-width: 700px;
 }
 
 .footer-info {
   display: flex;
   gap: 40px;
-  flex-wrap: wrap;
 }
 
 .footer-info h4 {
   color: var(--Gold-light, #ffeed9);
   font-size: 20px;
-  font-style: normal;
   font-weight: 700;
-  line-height: 120%;
   margin-bottom: 22px;
 }
 
@@ -66,19 +64,25 @@
 }
 
 .footer-info li {
+  margin-bottom: 10px;
+  white-space: nowrap;
+}
+.footer-info li a {
   color: var(--Gold-light, #ffeed9);
   font-size: 14px;
-  font-style: normal;
   font-weight: 300;
-  line-height: 140%;
-  margin-bottom: 10px;
+  text-decoration: none;
+}
+.footer-info li a:hover {
+  opacity: 0.8;
 }
 .footer-info li img {
   margin-right: 10px;
 }
 .social-icons {
   display: flex;
-  width: 200px;
+  max-width: 200px;
+  min-width: 150px;
   align-items: flex-start;
   align-content: flex-start;
   gap: 6px 5px;
@@ -98,23 +102,23 @@
   background: var(--Wireframe-20, #dde1e6);
 }
 .footer-certificate {
+  margin-top: 22.5px;
   display: flex;
   justify-content: center;
 }
 .footer-certificate img {
-  width: 120px;
-  height: 43px;
-  flex-shrink: 0;
+  max-width: 120px;
+  max-height: 43px;
   margin-right: 10px;
 }
 .footer-bottom {
   background: var(--Gold-light, #ffeed9);
   color: var(--Gold-main, #b37917);
   text-align: center;
-  font-family: Manrope;
   font-size: 12px;
-  font-style: normal;
   font-weight: 400;
-  line-height: 120%;
   padding: 38px 0;
+}
+.footer-bottom p {
+  margin-bottom: 5px;
 }
