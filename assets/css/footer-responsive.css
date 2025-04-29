@@ -54,9 +54,7 @@
     align-items: center;
     gap: 30px;
   }
-  .footer-certificate {
-    justify-content: center;
-  }
+
   .social-icons {
     justify-content: center;
   }
@@ -84,4 +82,8 @@
   }
 }
 @media (max-width: 376px) {
+  .footer-certificate {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 }

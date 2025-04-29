@@ -14,6 +14,11 @@ let cardWidth;
 let currentIndex = responsiveVisible;
 let updatedCards = [];
 let dots = [];
+let autoplayInterval;
+
+let isDragging = false;
+let startX = 0;
+let autoplayDelay = 4000; // 4 giây
 
 // Tính width mỗi card
 function calculateCardWidth() {
@@ -24,9 +29,8 @@ function calculateCardWidth() {
 // Điều chỉnh vị trí nút Prev/Next theo sliderWindow
 function adjustButtonPositions() {
   const sliderWindowWidth = sliderWindow.offsetWidth;
-  let offset = sliderWindowWidth * 0.1; // 8%
-  offset = Math.max(30, Math.min(offset, 200)); // Min 30px, Max 200px
-
+  let offset = sliderWindowWidth * 0.1;
+  offset = Math.max(30, Math.min(offset, 200));
   if (btnPrev) btnPrev.style.left = `${offset}px`;
   if (btnNext) btnNext.style.right = `${offset}px`;
 }
@@ -40,7 +44,6 @@ function initializeSlider() {
     if (btnNext) btnNext.style.display = "none";
     if (btnPrev) btnPrev.style.display = "none";
     dotContainer.style.display = "none";
-
     allCards.forEach((card) => {
       card.style.flex = `0 0 auto`;
       card.style.width = `${cardWidth}px`;
@@ -49,7 +52,6 @@ function initializeSlider() {
     for (let i = 0; i < responsiveVisible; i++) {
       const cloneFirst = allCards[i].cloneNode(true);
       track.appendChild(cloneFirst);
-
       const cloneLast = allCards[total - 1 - i].cloneNode(true);
       track.prepend(cloneLast);
     }
@@ -63,8 +65,10 @@ function initializeSlider() {
 
     buildDots();
     addEventListeners();
+    currentIndex = responsiveVisible;
     updateSlider(false);
     recalculate();
+    startAutoplay();
   }
 }
 
@@ -81,18 +85,18 @@ function buildDots() {
 
 function updateSlider(animate = true) {
   const offset = -(currentIndex * (cardWidth + gap));
-  track.style.transition = "transform 0.5s ease";
+  track.style.transition = animate ? "transform 0.5s ease" : "none";
   track.style.transform = `translateX(${offset}px)`;
 
   updatedCards.forEach((card) => card.classList.remove("fade"));
-  for (let i = 0; i < updatedCards.length; i++) {
-    if (i === currentIndex - 1 && responsiveVisible > 1) {
-      updatedCards[i].classList.add("fade");
+  updatedCards.forEach((card, idx) => {
+    if (idx === currentIndex - 1 && responsiveVisible > 1) {
+      card.classList.add("fade");
     }
-    if (i === currentIndex + responsiveVisible && responsiveVisible > 2) {
-      updatedCards[i].classList.add("fade");
+    if (idx === currentIndex + responsiveVisible && responsiveVisible > 2) {
+      card.classList.add("fade");
     }
-  }
+  });
 
   const centerIndex = (currentIndex - responsiveVisible + total) % total;
   dots.forEach((dot, idx) => {
@@ -131,62 +135,29 @@ function addEventListeners() {
   if (btnNext)
     btnNext.addEventListener("click", () => {
       currentIndex++;
-
-      if (currentIndex > updatedCards.length - responsiveVisible) {
-        // Clone thêm từ đầu
-        for (let i = 0; i < responsiveVisible; i++) {
-          const clone = updatedCards[i].cloneNode(true);
-          track.appendChild(clone);
-        }
-
-        // 🛠️ Cleanup bớt đầu
-        for (let i = 0; i < responsiveVisible; i++) {
-          track.removeChild(track.firstElementChild);
-          currentIndex--; // Vì đã mất bớt 1 card ở đầu nên currentIndex giảm
-        }
-
-        updatedCards = Array.from(document.querySelectorAll(".slider-card"));
-      }
-
-      track.style.transition = "transform 0.5s ease";
       updateSlider();
+      startAutoplay();
     });
 
   if (btnPrev)
     btnPrev.addEventListener("click", () => {
       currentIndex--;
-
-      if (currentIndex < 0) {
-        for (let i = 0; i < responsiveVisible; i++) {
-          const clone =
-            updatedCards[updatedCards.length - 1 - i].cloneNode(true);
-          track.prepend(clone);
-        }
-
-        updatedCards = Array.from(document.querySelectorAll(".slider-card"));
-
-        currentIndex += responsiveVisible;
-
-        for (let i = 0; i < responsiveVisible; i++) {
-          track.removeChild(track.lastElementChild);
-        }
-      }
-
-      track.style.transition = "transform 0.5s ease";
       updateSlider();
+      startAutoplay();
     });
 
   track.addEventListener("transitionend", () => {
     if (currentIndex >= total + responsiveVisible) {
       track.style.transition = "none";
       currentIndex = responsiveVisible;
-      track.offsetHeight;
       updateSlider(false);
-    } else if (currentIndex <= 0) {
+      track.offsetHeight;
+    }
+    if (currentIndex < responsiveVisible) {
       track.style.transition = "none";
-      currentIndex = total;
-      track.offsetHeight;
+      currentIndex = total + responsiveVisible - 1;
       updateSlider(false);
+      track.offsetHeight;
     }
   });
 
@@ -194,10 +165,83 @@ function addEventListeners() {
     dot.addEventListener("click", () => {
       currentIndex = idx + responsiveVisible;
       updateSlider();
+      startAutoplay();
     });
   });
 
   window.addEventListener("resize", recalculate);
+
+  addSwipeEvents();
 }
 
+// --- TOUCH + SWIPE ---
+function addSwipeEvents() {
+  track.addEventListener("touchstart", touchStart);
+  track.addEventListener("touchmove", touchMove);
+  track.addEventListener("touchend", touchEnd);
+
+  track.addEventListener("mousedown", touchStart);
+  track.addEventListener("mousemove", touchMove);
+  track.addEventListener("mouseup", touchEnd);
+  track.addEventListener("mouseleave", () => {
+    if (isDragging) touchEnd();
+  });
+}
+
+function addSwipeEvents() {
+  track.addEventListener("touchstart", touchStart);
+  track.addEventListener("touchmove", touchMove);
+  track.addEventListener("touchend", touchEnd);
+
+  track.addEventListener("mousedown", touchStart);
+  track.addEventListener("mousemove", touchMove);
+  track.addEventListener("mouseup", touchEnd);
+  track.addEventListener("mouseleave", () => {
+    if (isDragging) touchEnd();
+  });
+}
+
+function touchStart(e) {
+  isDragging = true;
+  startX = getPositionX(e);
+
+  track.style.transition = "none";
+}
+
+function touchMove(e) {
+  if (!isDragging) return;
+  const currentX = getPositionX(e);
+  const movedBy = currentX - startX;
+
+  // Nếu kéo đủ 1 lần => move luôn 1 card rồi khóa kéo
+  if (movedBy < -50) {
+    isDragging = false;
+    currentIndex++;
+    updateSlider();
+    startAutoplay();
+  } else if (movedBy > 50) {
+    isDragging = false;
+    currentIndex--;
+    updateSlider();
+    startAutoplay();
+  } else {
+    // Nếu chưa đủ 50px thì chỉ kéo nhẹ theo ngón tay
+    track.style.transform = `translateX(${
+      -(currentIndex * (cardWidth + gap)) + movedBy
+    }px)`;
+  }
+}
+
+function touchEnd(e) {
+  if (!isDragging) return;
+  isDragging = false;
+  updateSlider(); // Nếu kéo chưa tới ngưỡng thì về lại vị trí cũ
+  startAutoplay();
+}
+
+function getPositionX(e) {
+  return e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
+}
+
+// Khởi động
 initializeSlider();

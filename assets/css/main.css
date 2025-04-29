@@ -173,9 +173,10 @@ section {
   will-change: transform;
 }
 
-.slider-card.fade {
+.slider-card.faded {
   opacity: 0.2;
-  transition: opacity 0.5s ease;
+  filter: blur(2px);
+  transition: all 0.5s ease;
 }
 
 .slider-card {
@@ -292,6 +293,8 @@ section {
   gap: 16px;
   justify-content: center;
   margin: 0 auto;
+  max-height: 705px;
+  overflow: auto;
 }
 
 .branch-card {
@@ -651,6 +654,7 @@ section {
   justify-content: space-between;
   margin-top: 24px;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
 .post-rating {
@@ -861,7 +865,7 @@ form {
 
 .input-data input {
   width: 100%;
-  padding-bottom: 20px;
+  padding: 20px 0;
   font-size: 16px;
   border: none;
   border-bottom: 1px solid #c1c7cd;
@@ -933,6 +937,7 @@ form {
     --Gold-gradient,
     linear-gradient(90deg, #cb9849 0%, #9e6e00 100%)
   );
+  font-size: 16px;
   border: none;
   color: white;
   text-transform: uppercase;
@@ -1017,6 +1022,7 @@ form {
   text-align: center;
   font-size: 14px;
   font-weight: 500;
+  margin: 20px 0;
 }
 
 .contact-container textarea {
@@ -1041,4 +1047,22 @@ form {
 
 .slider-window {
   position: relative;
+}
+
+#background-mobile,
+#banner-mobile {
+  display: none;
+}
+.contact-form-container form {
+  margin-top: 0;
+}
+
+.swiper-container {
+  display: none;
+}
+.swiper-slide img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
 }
