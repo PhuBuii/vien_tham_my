@@ -1,124 +1,212 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
-    <meta charset="utf-8" />
-    <title>Swiper demo</title>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
-    />
-    <link rel="stylesheet" href="../assets/css/global.css" />
-    <link rel="stylesheet" href="../assets/css/main.css" />
-    <link rel="stylesheet" href="../assets/css/responsive.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lịch sử hình thành</title>
+    <style>
+      :root {
+        --Gold-main: #b37917;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Manrope", sans-serif;
+        background: linear-gradient(to bottom, #fff, #fef6e7);
+      }
+
+      .container {
+        max-width: 1473px;
+        margin: 0 auto;
+        padding: 0 16px;
+      }
+
+      .timeline-section {
+        padding-top: 100px;
+      }
+
+      .header-subheader {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 40px;
+      }
+
+      .section-title {
+        font-size: 80px;
+        font-weight: 400;
+        color: var(--Gold-main);
+        margin: 0;
+      }
+
+      .sub-header {
+        color: var(--Gold-main);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 140%;
+      }
+
+      .timeline-content {
+        display: flex;
+        gap: 100px;
+        align-items: flex-start;
+      }
+
+      .timeline-description {
+        flex: 1;
+        max-width: 500px;
+        font-size: 14px;
+        color: #333;
+        margin: 0;
+      }
+
+      .timeline {
+        flex: 2;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 80px;
+        height: 60px;
+        border-top: 1px solid #ccc;
+      }
+
+      .timeline-item {
+        position: relative;
+        text-align: center;
+      }
+
+      .timeline-item .dot {
+        width: 8px;
+        height: 8px;
+        background-color: #a86f00;
+        border-radius: 50%;
+        position: absolute;
+        top: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .timeline-item .year {
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-weight: bold;
+        color: #333;
+        font-size: 14px;
+      }
+
+      .timeline-item .popup {
+        position: absolute;
+        top: -130px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 220px;
+        background: white;
+        border-radius: 8px;
+        padding: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        font-size: 14px;
+        z-index: 10;
+      }
+
+      .timeline-item:hover .popup {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      @media (max-width: 768px) {
+        .timeline-content {
+          flex-direction: column;
+          gap: 40px;
+        }
+
+        .section-title {
+          font-size: 48px;
+        }
+
+        .timeline {
+          flex-direction: column;
+          align-items: flex-start;
+          height: auto;
+          border-left: 2px solid #ccc;
+          border-top: none;
+          padding-left: 20px;
+        }
+
+        .timeline-item {
+          margin-bottom: 40px;
+        }
+
+        .timeline-item .year,
+        .timeline-item .popup {
+          left: 0;
+          transform: none;
+        }
+
+        .timeline-item .dot {
+          left: 0;
+          transform: none;
+        }
+      }
+    </style>
   </head>
   <body>
-    <section class="slider-section">
+    <section class="timeline-section">
       <div class="container">
-        <div class="container-header">
-          <h1 class="section-title">Quản lý viện thẩm mỹ</h1>
-          <p class="section-desc">
+        <div class="header-subheader">
+          <h1 class="section-title">Lịch sử hình thành</h1>
+          <div class="sub-header">
+            <p>Viện thẩm mỹ DIVA</p>
+            <p>Tự hào người Việt</p>
+          </div>
+        </div>
+        <div class="timeline-content">
+          <p class="timeline-description">
             Supraheten sede: preniledes read. Semisk ortad ugon då on
             benörussade kätyr. Oligt vås pes att biost eurobysm det vill säga
-            pode, vivis. Dunar sodat pålätida faliga prepösat. Kror treboloheten
-            vining men olonas homose. Åskade exogt i pret lere kost ter lanade.
+            pode, vivis.
           </p>
-        </div>
-
-        <div class="slider">
-          <button class="slider-btn prev">
-            <img src="../assets/icons/left-arrow.svg" alt="Left arrow" />
-          </button>
-          <div class="slider-window">
-            <div class="slider-track">
-              <!-- TẤT CẢ .slider-card ở đây -->
-              <div class="slider-card">
-                <div class="slider-img">
-                  <img src="../assets/image/slider/slider_1.png" />
-                </div>
-                <div class="slider-info">
-                  <h3 class="slider-card-title">Cao Thị Cẩm Thu</h3>
-                  <p class="slider-card-subtitle">Viện thẩm mỹ DIVA Biên Hòa</p>
-                  <p class="slider-card-desc">6 năm kinh nghiệm</p>
-                </div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="dot"></span>
+              <span class="year">20xx</span>
+              <div class="popup">
+                <strong>20xx</strong>
+                <p>Khởi đầu hành trình phát triển Viện thẩm mỹ DIVA.</p>
               </div>
-
-              <div class="slider-card">
-                <div class="slider-img">
-                  <img src="../assets/image/slider/slider_2.png" />
-                </div>
-                <div class="slider-info">
-                  <h3 class="slider-card-title">Cao Thị Cẩm Thu</h3>
-                  <p class="slider-card-subtitle">Viện thẩm mỹ DIVA Biên Hòa</p>
-                  <p class="slider-card-desc">6 năm kinh nghiệm</p>
-                </div>
+            </div>
+            <div class="timeline-item">
+              <span class="dot"></span>
+              <span class="year">20xx</span>
+              <div class="popup">
+                <strong>20xx</strong>
+                <p>Mở rộng hệ thống trên toàn quốc.</p>
               </div>
-              <div class="slider-card">
-                <div class="slider-img">
-                  <img src="../assets/image/slider/slider_3.png" />
-                </div>
-                <div class="slider-info">
-                  <h3 class="slider-card-title">Cao Thị Cẩm Thu</h3>
-                  <p class="slider-card-subtitle">Viện thẩm mỹ DIVA Biên Hòa</p>
-                  <p class="slider-card-desc">6 năm kinh nghiệm</p>
-                </div>
+            </div>
+            <div class="timeline-item">
+              <span class="dot"></span>
+              <span class="year">20xx</span>
+              <div class="popup">
+                <strong>20xx</strong>
+                <p>Đạt cột mốc 100 chi nhánh.</p>
               </div>
-              <div class="slider-card">
-                <div class="slider-img">
-                  <img src="../assets/image/slider/slider_4.png" />
-                </div>
-                <div class="slider-info">
-                  <h3 class="slider-card-title">Cao Thị Cẩm Thu</h3>
-                  <p class="slider-card-subtitle">Viện thẩm mỹ DIVA Biên Hòa</p>
-                  <p class="slider-card-desc">6 năm kinh nghiệm</p>
-                </div>
-              </div>
-              <div class="slider-card">
-                <div class="slider-img">
-                  <img src="../assets/image/slider/slider_5.png" />
-                </div>
-                <div class="slider-info">
-                  <h3 class="slider-card-title">Cao Thị Cẩm Thu</h3>
-                  <p class="slider-card-subtitle">Viện thẩm mỹ DIVA Biên Hòa</p>
-                  <p class="slider-card-desc">6 năm kinh nghiệm</p>
-                </div>
-              </div>
-              <div class="slider-card">
-                <div class="slider-img">
-                  <img src="../assets/image/slider/slider_6.png" />
-                </div>
-                <div class="slider-info">
-                  <h3 class="slider-card-title">Cao Thị Cẩm Thu</h3>
-                  <p class="slider-card-subtitle">Viện thẩm mỹ DIVA Biên Hòa</p>
-                  <p class="slider-card-desc">6 năm kinh nghiệm</p>
-                </div>
-              </div>
-              <div class="slider-card">
-                <div class="slider-img">
-                  <img src="../assets/image/slider/slider_7.png" />
-                </div>
-                <div class="slider-info">
-                  <h3 class="slider-card-title">Cao Thị Cẩm Thu</h3>
-                  <p class="slider-card-subtitle">Viện thẩm mỹ DIVA Biên Hòa</p>
-                  <p class="slider-card-desc">6 năm kinh nghiệm</p>
-                </div>
+            </div>
+            <div class="timeline-item">
+              <span class="dot"></span>
+              <span class="year">20xx</span>
+              <div class="popup">
+                <strong>20xx</strong>
+                <p>Ứng dụng công nghệ hiện đại vào thẩm mỹ.</p>
               </div>
             </div>
           </div>
-          <button class="slider-btn next">
-            <img src="../assets/icons/right-arrow.svg" alt="Right arrow" />
-          </button>
         </div>
-        <div class="slider-dots"></div>
       </div>
     </section>
-
-    <!-- Footer section -->
-    <footer class="footer"></footer>
-    <script src="../assets/js/footer.js"></script>
-
-    <!--Javascript-->
-    <!-- SwiperJS Library -->
-    <script src="../assets/js/tabSection.js"></script>
-    <script src="../assets/js/sliderSectionNoLoop.js"></script>
   </body>
 </html>

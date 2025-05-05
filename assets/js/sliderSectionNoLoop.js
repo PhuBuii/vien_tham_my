@@ -5,6 +5,8 @@ function initSlider(sliderContainer) {
   const btnPrev = sliderContainer.querySelector(".slider-btn.prev");
   const sliderWindow = sliderContainer.querySelector(".slider-window");
   const dotContainer = sliderContainer.querySelector(".slider-dots");
+  const expertSection = document.querySelector(".expert-section");
+  const isNewsSection = sliderContainer.closest(".news-section");
 
   const total = allCards.length;
   const gap = 20;
@@ -15,121 +17,103 @@ function initSlider(sliderContainer) {
   let startX = 0;
   let dots = [];
 
-  function calculateCardWidth() {
-    const trackWidth = sliderWindow.offsetWidth;
-    cardWidth =
-      (trackWidth * 0.79 - gap * responsiveVisible) / responsiveVisible;
-  }
+  const getResponsiveVisible = () => {
+    if (window.innerWidth <= 576) return 1;
+    if (window.innerWidth <= 768) return 2;
+    if (window.innerWidth <= 1200) return 3;
+    return isNewsSection ? 3 : 4;
+  };
 
-  function updateButtonVisibility() {
+  const calculateCardWidth = () => {
+    const trackWidth = sliderWindow.offsetWidth;
+    return (trackWidth * 0.79 - gap * responsiveVisible) / responsiveVisible;
+  };
+
+  const updateButtonVisibility = () => {
     if (btnPrev) btnPrev.style.display = currentIndex === 0 ? "none" : "block";
     if (btnNext)
       btnNext.style.display =
         currentIndex >= total - responsiveVisible ? "none" : "block";
 
-    const sliderWidth = sliderWindow.offsetWidth;
-    const offset = Math.max(30, Math.min(sliderWidth * 0.1, 200));
-    btnPrev.style.left = `${offset}px`;
-    btnNext.style.right = `${offset}px`;
-  }
+    const offset = Math.max(30, Math.min(sliderWindow.offsetWidth * 0.1, 200));
+    if (btnPrev) btnPrev.style.left = `${offset}px`;
+    if (btnNext) btnNext.style.right = `${offset}px`;
+  };
 
-  function updateSlider(animate = true) {
+  const updateSlider = (animate = true) => {
     const offset = -(currentIndex * (cardWidth + gap));
     track.style.transition = animate ? "transform 0.5s ease" : "none";
     track.style.transform = `translateX(${offset}px)`;
 
     updateButtonVisibility();
 
+    // Fade logic (skip for news-section)
     allCards.forEach((card) => card.classList.remove("fade"));
-
-    const visibleRangeStart = currentIndex - 1;
-    const visibleRangeEnd = currentIndex + responsiveVisible;
-
-    if (currentIndex > 0 && allCards[visibleRangeStart])
-      allCards[visibleRangeStart].classList.add("fade");
-
-    if (currentIndex < total - responsiveVisible && allCards[visibleRangeEnd])
-      allCards[visibleRangeEnd].classList.add("fade");
-
-    // Update dots active state
-    if (dots.length) {
-      dots.forEach((dot, index) => {
-        dot.classList.toggle("active", index === currentIndex);
-      });
+    if (!isNewsSection) {
+      const before = currentIndex - 1;
+      const after = currentIndex + responsiveVisible;
+      if (before >= 0) allCards[before]?.classList.add("fade");
+      if (after < total) allCards[after]?.classList.add("fade");
     }
-  }
 
-  function buildDots() {
+    // Active dot
+    dots.forEach((dot, i) =>
+      dot.classList.toggle("active", i === currentIndex)
+    );
+  };
+
+  const buildDots = () => {
     if (!dotContainer) return;
-
     dotContainer.innerHTML = "";
-    const dotCount = total - responsiveVisible + 1;
 
-    for (let i = 0; i < dotCount; i++) {
+    const count = total - responsiveVisible + 1;
+    for (let i = 0; i < count; i++) {
       const dot = document.createElement("span");
-      dot.classList.add("dot");
-      if (i === 0) dot.classList.add("active");
-
+      dot.className = `dot${i === 0 ? " active" : ""}`;
       dot.addEventListener("click", () => {
         currentIndex = i;
         updateSlider();
       });
-
       dotContainer.appendChild(dot);
     }
-
     dots = dotContainer.querySelectorAll(".dot");
-  }
+  };
 
-  function recalculate() {
-    const trackWidth = sliderWindow.offsetWidth;
-
-    responsiveVisible =
-      window.innerWidth <= 576
-        ? 1
-        : window.innerWidth <= 768
-        ? 2
-        : window.innerWidth <= 1200
-        ? 3
-        : 4;
-
-    cardWidth =
-      (trackWidth * 0.79 - gap * responsiveVisible) / responsiveVisible;
+  const recalculate = () => {
+    responsiveVisible = getResponsiveVisible();
+    cardWidth = calculateCardWidth();
 
     allCards.forEach((card) => {
       card.style.width = `${cardWidth}px`;
+      card.style.flex = "0 0 auto";
     });
 
-    const halfCard = cardWidth / 2;
-    sliderWindow.style.left = `${halfCard}px`;
+    // Layout tweaks
+    if (isNewsSection) {
+      sliderWindow.style.left = "0";
+    } else {
+      const halfCard =
+        (cardWidth + gap + cardWidth / (12 - responsiveVisible)) / 2;
+      sliderWindow.style.left = `${halfCard}px`;
+      if (expertSection) expertSection.style.padding = `0px ${halfCard + 60}px`;
+    }
 
     buildDots();
     updateSlider(false);
-  }
+  };
 
-  function addSwipeEvents() {
-    track.addEventListener("touchstart", touchStart);
-    track.addEventListener("touchmove", touchMove);
-    track.addEventListener("touchend", touchEnd);
+  const getPositionX = (e) =>
+    e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
 
-    track.addEventListener("mousedown", touchStart);
-    track.addEventListener("mousemove", touchMove);
-    track.addEventListener("mouseup", touchEnd);
-    track.addEventListener("mouseleave", () => {
-      if (isDragging) touchEnd();
-    });
-  }
-
-  function touchStart(e) {
+  const touchStart = (e) => {
     isDragging = true;
     startX = getPositionX(e);
     track.style.transition = "none";
-  }
+  };
 
-  function touchMove(e) {
+  const touchMove = (e) => {
     if (!isDragging) return;
-    const currentX = getPositionX(e);
-    const movedBy = currentX - startX;
+    const movedBy = getPositionX(e) - startX;
 
     if (movedBy < -50 && currentIndex < total - responsiveVisible) {
       isDragging = false;
@@ -144,52 +128,48 @@ function initSlider(sliderContainer) {
         -(currentIndex * (cardWidth + gap)) + movedBy
       }px)`;
     }
-  }
+  };
 
-  function touchEnd() {
-    if (!isDragging) return;
-    isDragging = false;
-    updateSlider();
-  }
+  const touchEnd = () => {
+    if (isDragging) {
+      isDragging = false;
+      updateSlider();
+    }
+  };
 
-  function getPositionX(e) {
-    return e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
-  }
+  const addSwipeEvents = () => {
+    track.addEventListener("touchstart", touchStart);
+    track.addEventListener("touchmove", touchMove);
+    track.addEventListener("touchend", touchEnd);
 
-  function addEventListeners() {
-    if (btnNext)
-      btnNext.addEventListener("click", () => {
-        if (currentIndex < total - responsiveVisible) {
-          currentIndex++;
-          updateSlider();
-        }
-      });
+    track.addEventListener("mousedown", touchStart);
+    track.addEventListener("mousemove", touchMove);
+    track.addEventListener("mouseup", touchEnd);
+    track.addEventListener("mouseleave", touchEnd);
+  };
 
-    if (btnPrev)
-      btnPrev.addEventListener("click", () => {
-        if (currentIndex > 0) {
-          currentIndex--;
-          updateSlider();
-        }
-      });
+  const addEventListeners = () => {
+    btnNext?.addEventListener("click", () => {
+      if (currentIndex < total - responsiveVisible) {
+        currentIndex++;
+        updateSlider();
+      }
+    });
+
+    btnPrev?.addEventListener("click", () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateSlider();
+      }
+    });
 
     window.addEventListener("resize", recalculate);
     addSwipeEvents();
-  }
+  };
 
-  function initializeSlider() {
-    calculateCardWidth();
-    recalculate();
-    allCards.forEach((card) => {
-      card.style.flex = "0 0 auto";
-      card.style.width = `${cardWidth}px`;
-    });
-
-    updateSlider(false);
-    addEventListeners();
-  }
-
-  initializeSlider();
+  // Initialize
+  recalculate();
+  addEventListeners();
 }
 
 document.querySelectorAll(".slider").forEach((slider) => {
