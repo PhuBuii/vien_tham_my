@@ -1079,3 +1079,16 @@ form {
   object-fit: cover;
   border-radius: 8px;
 }
+
+.expert-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 250px;
+}
+.expert-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  justify-content: center;
+}
