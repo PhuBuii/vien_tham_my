@@ -1,9 +1,23 @@
+@media (max-width: 1680px) {
+  .timeline-section .container,
+  .doctor-section .container,
+  .equipment-section .container {
+    margin-left: 18px;
+  }
+}
 @media (max-width: 1550px) {
   .contact-form-container {
     padding: 0 50px;
   }
   .contact-container {
     padding: 0 100px;
+  }
+  .timeline-section .container {
+    margin: 0;
+  }
+  .doctor-section .container,
+  .equipment-section .container {
+    margin-left: 36px;
   }
 }
 @media (max-width: 1366px) {
@@ -15,6 +29,12 @@
   }
 }
 @media (max-width: 1200px) {
+  .intro-content {
+    gap: 60px;
+  }
+  .intro-branch-wrapper {
+    flex-direction: column;
+  }
   .consultation-form {
     padding: 0 100px;
   }
@@ -114,7 +134,7 @@
     padding: 0 100px !important;
   }
   .timeline-section .container {
-    padding: 0 40px;
+    padding: 0 36px;
   }
 
   .timeline-content {
@@ -152,6 +172,23 @@
   }
 }
 @media (max-width: 1024px) {
+  .equipment-section .heading-desc {
+    display: none;
+  }
+  .equipment-section > img {
+    display: none;
+  }
+  .equipment-section .container > img {
+    display: block;
+    position: absolute;
+    inset: 0;
+  }
+  .equipment-section .slide-show {
+    margin-top: 134px;
+  }
+  .equipment-section .container {
+    min-height: 830px;
+  }
   .tabs {
     justify-content: flex-start;
   }
@@ -334,14 +371,21 @@
   .intro-title {
     font-size: 32px;
   }
-
+  .intro-section {
+    margin-top: 59px;
+  }
   .intro-content {
     flex-direction: column;
     gap: 24px;
+    margin-bottom: 57px;
+  }
+  .intro-section .container-header {
+    margin-bottom: 0;
   }
   .intro-stats {
     gap: 24px;
     justify-content: center;
+    margin-bottom: 130px;
   }
   #special-item {
     position: relative;
@@ -376,6 +420,44 @@
 
   .timeline-description {
     font-size: 13px;
+  }
+
+  .license-section .section-desc {
+    margin: 0 16px;
+  }
+  .caption {
+    margin-top: 10px;
+  }
+  .license-item {
+    width: 100%;
+  }
+  .news-section .slider-dots {
+    text-align: center;
+    margin-top: 45px;
+  }
+  .timeline-section .header-subheader {
+    align-items: flex-start;
+    gap: 0;
+    text-align: left;
+  }
+
+  .equipment-section .prev {
+    left: 19px !important;
+  }
+  .equipment-section .next {
+    right: 19px !important;
+  }
+  .equipment-section .container {
+    margin: 0;
+  }
+  .equipment-section .header-subheader {
+    align-items: flex-start;
+    text-align: left;
+    gap: 15px;
+    margin-left: 32px;
+  }
+  .equipment-section .section-title {
+    margin: 0;
   }
 }
 

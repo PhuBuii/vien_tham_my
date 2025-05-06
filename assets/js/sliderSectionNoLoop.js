@@ -59,12 +59,14 @@ class CustomSlider {
     if (this.isNewsSection) {
       if (w <= 768) this.responsiveVisible = 1;
       else if (w <= 1200) this.responsiveVisible = 2;
-      else this.responsiveVisible = 3;
+      else if (w <= 1920) this.responsiveVisible = 3;
+      else this.responsiveVisible = 4;
     } else {
       if (w <= 576) this.responsiveVisible = 1;
       else if (w <= 768) this.responsiveVisible = 2;
       else if (w <= 1200) this.responsiveVisible = 3;
-      else this.responsiveVisible = 4;
+      else if (w <= 1920) this.responsiveVisible = 4;
+      else this.responsiveVisible = 5;
     }
     this.totalSlots = this.responsiveVisible;
   }
@@ -281,7 +283,6 @@ class CustomSlider {
   }
 }
 
-// Khởi tạo nhiều slider
 document.querySelectorAll(".slider").forEach((sliderEl) => {
   new CustomSlider(sliderEl, {
     loop: false,

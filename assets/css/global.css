@@ -62,14 +62,31 @@ body {
 
 .background {
   position: absolute;
-  top: 956.5px;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 1697px;
+  height: 2146px;
+  z-index: 0;
+  pointer-events: none;
+}
+.background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 449px;
+  background: linear-gradient(180deg, #f8cc6d -187.39%, #fff 60.47%), #edecec;
   opacity: 0.4;
+}
+.background::after {
+  content: "";
+  position: absolute;
+  top: 956.5px;
+  width: 100%;
+  height: 1697px;
   background: linear-gradient(180deg, #fff 9.96%, #f8cc6d 52.51%, #fff 84.63%),
     #edecec;
-  z-index: 0;
+  opacity: 0.4;
 }
 
 .post-background {

@@ -1081,16 +1081,6 @@ form {
   margin-top: 0;
 }
 
-.swiper-container {
-  display: none;
-}
-.swiper-slide img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
 .expert-section {
   display: flex;
   flex-direction: column;
@@ -1108,17 +1098,24 @@ form {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 100px;
 }
 .intro-section .container {
   max-width: 1473px;
   padding: 0 16px;
+}
+.intro-section .sub-header {
+  margin-bottom: 13px;
+}
+.intro-section .container-header {
+  margin-bottom: 74px;
 }
 .intro-content {
   display: flex;
   justify-content: center;
   gap: 103px;
   flex-wrap: wrap;
-  margin-bottom: 60px;
+  margin-bottom: 77.5px;
 }
 
 .intro-block {
@@ -1128,6 +1125,7 @@ form {
 
 .intro-block h3 {
   color: var(--Wireframe-80, #343a3f);
+  margin-bottom: 12.5px;
   font-size: 20px;
   font-weight: 700;
 }
@@ -1163,13 +1161,15 @@ form {
   white-space: nowrap;
 }
 .timeline-section .container,
-.doctor-section .container {
+.doctor-section .container,
+.news-section .container {
   max-width: 1670px;
   margin: 0 0 0 auto;
 }
 
 .timeline-section {
-  padding-top: 100px;
+  padding-top: 55px;
+  padding-bottom: 64px;
 }
 
 .header-subheader {
@@ -1177,11 +1177,10 @@ form {
   align-items: center;
   justify-content: flex-start;
   gap: 257px;
-  margin-bottom: 40px;
+  margin-bottom: 17px;
 }
 .sub-header {
   color: var(--Gold-main, #b37917);
-  text-align: center;
   font-size: 16px;
   font-weight: 400;
 }
@@ -1204,7 +1203,7 @@ form {
   flex: 1;
   position: relative;
   display: flex;
-  gap: 80px;
+  gap: 145px;
   height: 60px;
   border-top: 1px solid #ccc;
 }
@@ -1258,7 +1257,7 @@ form {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 24px;
   margin-top: 40px;
 }
 
@@ -1274,12 +1273,14 @@ form {
   text-align: center;
   font-size: 16px;
   font-weight: 400;
+  margin-top: 24px;
 }
 .heading-desc {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding-right: 235px;
+  margin-bottom: 49px;
 }
 .heading-desc p {
   max-width: 772px;
@@ -1293,12 +1294,129 @@ form {
 .news-section .slider-card.faded {
   opacity: 1 !important;
 }
-.equipment-section img {
-  width: 100%;
-}
+
 #doctor-section .dot {
   background-color: var(--Default, #fff);
 }
 #doctor-section .dot.active {
   background-color: var(--Gold-main, #b37917);
+}
+
+.main-swiper img {
+  width: 100%;
+  height: 333px;
+}
+.slide-show {
+  position: relative;
+  max-width: 700px;
+}
+.main-swiper {
+  --swiper-navigation-color: #b37917;
+}
+
+.thumb-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.thumb-swiper {
+  flex: 1;
+  padding: 10px 0;
+}
+
+.thumb-swiper .swiper-slide {
+  width: 100px;
+  height: 115px;
+  cursor: pointer;
+}
+
+.thumb-swiper .swiper-slide-thumb-active {
+  opacity: 1;
+  border: 2px solid #b37917;
+}
+
+.thumb-swiper img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.thumb-nav-btn {
+  background: #b37917;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  border: none;
+}
+
+.swiper-button-disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
+}
+
+.slide-show .slider-btn {
+  top: 93%;
+  width: 38px;
+  height: 38px;
+}
+.slide-show .slider-btn img {
+  width: 50%;
+}
+
+.equipment-section .heading-desc {
+  justify-content: flex-start;
+}
+.intro-branch-wrapper {
+  display: flex;
+  max-width: 1670px;
+  margin: 0 0 0 auto;
+  gap: 21px;
+  flex-wrap: wrap;
+  position: relative;
+  top: -100px;
+  z-index: 1;
+}
+.news-section .slider {
+  padding: 0;
+}
+.intro-section .sub-header {
+  text-align: center;
+}
+.doctor-section .slider {
+  margin-top: 84px;
+}
+.equipment-section {
+  aspect-ratio: 1879 / 1174; /* Tỷ lệ của ảnh nền */
+  position: relative;
+}
+
+.equipment-section > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.equipment-section .container {
+  position: relative;
+  min-height: 1000px;
+  margin: 0 0 0 auto;
+  max-width: 1670px;
+  z-index: 1;
+  height: 100%;
+}
+.equipment-section .container > img {
+  display: none;
+  width: 100%;
 }

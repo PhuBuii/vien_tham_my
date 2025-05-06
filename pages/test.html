@@ -1,142 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Swiper Gallery with Thumbnail Nav</title>
+    <meta charset="utf-8" />
+    <title>Swiper Scrollbar Fixed Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Swiper CSS -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
 
     <style>
+      * {
+        box-sizing: border-box;
+      }
+
       body {
+        margin: 0;
+        padding: 0;
         font-family: sans-serif;
-        max-width: 900px;
-        margin: 40px auto;
-        background: #f9f9f9;
+        background: #f6f6f6;
       }
 
-      .main-swiper img {
+      .swiper-container-wrapper {
+        position: relative;
         width: 100%;
+        padding-bottom: 80px; /* chừa không gian cho scrollbar phía dưới */
+      }
+
+      .swiper {
+        width: 100%;
+        height: 300px;
+      }
+
+      .swiper-slide {
+        background: #fff;
         border-radius: 8px;
-      }
-
-      .main-swiper {
-        --swiper-navigation-color: #b37917;
-      }
-
-      .thumb-wrapper {
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         display: flex;
+        justify-content: center;
         align-items: center;
-        gap: 10px;
-        margin-top: 20px;
+        font-size: 24px;
+        color: #333;
       }
 
-      .thumb-swiper {
-        flex: 1;
-        padding: 10px 0;
+      /* Scrollbar fixed and centered */
+      .swiper-scrollbar {
+        position: absolute;
+        bottom: 20px;
+        left: 50% !important;
+        transform: translateX(-50%);
+        width: 523px !important;
+        height: 8px;
+        background-color: #ddd;
+        border-radius: 4px;
+        z-index: 10;
       }
 
-      .thumb-swiper .swiper-slide {
-        width: 100px;
-        height: 70px;
-        opacity: 0.5;
-        cursor: pointer;
-      }
-
-      .thumb-swiper .swiper-slide-thumb-active {
-        opacity: 1;
-        border: 2px solid #b37917;
+      .swiper-scrollbar-drag {
+        background-color: #b37917;
         border-radius: 4px;
       }
 
-      .thumb-swiper img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .thumb-nav-btn {
-        background: #b37917;
-        color: white;
-        padding: 8px 12px;
-        border-radius: 999px;
-        font-weight: bold;
-        cursor: pointer;
-        user-select: none;
-        border: none;
-      }
-
-      .swiper-button-disabled {
-        opacity: 0.3;
-        pointer-events: none;
+      @media (max-width: 480px) {
+        .swiper-scrollbar {
+          width: 90% !important;
+        }
       }
     </style>
   </head>
+
   <body>
-    <!-- Main Swiper -->
-    <div class="swiper main-swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-        </div>
-        <div class="swiper-slide">
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-        </div>
-      </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-    </div>
-
-    <!-- Thumbnail Swiper with arrows -->
-    <div class="thumb-wrapper">
-      <button class="thumb-nav-btn thumb-prev">←</button>
-      <div class="swiper thumb-swiper" thumbsSlider>
+    <div class="swiper-container-wrapper">
+      <div class="swiper mySwiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-          </div>
-          <div class="swiper-slide">
-            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-          </div>
-          <div class="swiper-slide">
-            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-          </div>
-          <div class="swiper-slide">
-            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-          </div>
+          <div class="swiper-slide">Slide 1</div>
+          <div class="swiper-slide">Slide 2</div>
+          <div class="swiper-slide">Slide 3</div>
+          <div class="swiper-slide">Slide 4</div>
+          <div class="swiper-slide">Slide 5</div>
+          <div class="swiper-slide">Slide 6</div>
         </div>
       </div>
-      <button class="thumb-nav-btn thumb-next">→</button>
+
+      <!-- Scrollbar nằm ngoài -->
+      <div class="swiper-scrollbar"></div>
     </div>
 
+    <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-      const thumbSwiper = new Swiper(".thumb-swiper", {
-        spaceBetween: 10,
-        slidesPerView: 4,
-        watchSlidesProgress: true,
-        navigation: {
-          nextEl: ".thumb-next",
-          prevEl: ".thumb-prev",
-        },
-      });
 
-      const mainSwiper = new Swiper(".main-swiper", {
-        spaceBetween: 10,
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        thumbs: {
-          swiper: thumbSwiper,
+    <!-- Swiper Init -->
+    <script>
+      const swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          draggable: true,
+          hide: false,
         },
       });
     </script>
