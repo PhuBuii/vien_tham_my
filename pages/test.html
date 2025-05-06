@@ -1,212 +1,144 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lịch sử hình thành</title>
+    <title>Swiper Gallery with Thumbnail Nav</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
     <style>
-      :root {
-        --Gold-main: #b37917;
-      }
-
       body {
-        margin: 0;
-        font-family: "Manrope", sans-serif;
-        background: linear-gradient(to bottom, #fff, #fef6e7);
+        font-family: sans-serif;
+        max-width: 900px;
+        margin: 40px auto;
+        background: #f9f9f9;
       }
 
-      .container {
-        max-width: 1473px;
-        margin: 0 auto;
-        padding: 0 16px;
+      .main-swiper img {
+        width: 100%;
+        border-radius: 8px;
       }
 
-      .timeline-section {
-        padding-top: 100px;
+      .main-swiper {
+        --swiper-navigation-color: #b37917;
       }
 
-      .header-subheader {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-        margin-bottom: 40px;
-      }
-
-      .section-title {
-        font-size: 80px;
-        font-weight: 400;
-        color: var(--Gold-main);
-        margin: 0;
-      }
-
-      .sub-header {
-        color: var(--Gold-main);
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 140%;
-      }
-
-      .timeline-content {
-        display: flex;
-        gap: 100px;
-        align-items: flex-start;
-      }
-
-      .timeline-description {
-        flex: 1;
-        max-width: 500px;
-        font-size: 14px;
-        color: #333;
-        margin: 0;
-      }
-
-      .timeline {
-        flex: 2;
-        position: relative;
+      .thumb-wrapper {
         display: flex;
         align-items: center;
-        gap: 80px;
-        height: 60px;
-        border-top: 1px solid #ccc;
+        gap: 10px;
+        margin-top: 20px;
       }
 
-      .timeline-item {
-        position: relative;
-        text-align: center;
+      .thumb-swiper {
+        flex: 1;
+        padding: 10px 0;
       }
 
-      .timeline-item .dot {
-        width: 8px;
-        height: 8px;
-        background-color: #a86f00;
-        border-radius: 50%;
-        position: absolute;
-        top: -5px;
-        left: 50%;
-        transform: translateX(-50%);
+      .thumb-swiper .swiper-slide {
+        width: 100px;
+        height: 70px;
+        opacity: 0.5;
+        cursor: pointer;
       }
 
-      .timeline-item .year {
-        position: absolute;
-        top: -30px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-weight: bold;
-        color: #333;
-        font-size: 14px;
-      }
-
-      .timeline-item .popup {
-        position: absolute;
-        top: -130px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 220px;
-        background: white;
-        border-radius: 8px;
-        padding: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        opacity: 0;
-        pointer-events: none;
-        transition: all 0.3s ease;
-        font-size: 14px;
-        z-index: 10;
-      }
-
-      .timeline-item:hover .popup {
+      .thumb-swiper .swiper-slide-thumb-active {
         opacity: 1;
-        pointer-events: auto;
+        border: 2px solid #b37917;
+        border-radius: 4px;
       }
 
-      @media (max-width: 768px) {
-        .timeline-content {
-          flex-direction: column;
-          gap: 40px;
-        }
+      .thumb-swiper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
 
-        .section-title {
-          font-size: 48px;
-        }
+      .thumb-nav-btn {
+        background: #b37917;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 999px;
+        font-weight: bold;
+        cursor: pointer;
+        user-select: none;
+        border: none;
+      }
 
-        .timeline {
-          flex-direction: column;
-          align-items: flex-start;
-          height: auto;
-          border-left: 2px solid #ccc;
-          border-top: none;
-          padding-left: 20px;
-        }
-
-        .timeline-item {
-          margin-bottom: 40px;
-        }
-
-        .timeline-item .year,
-        .timeline-item .popup {
-          left: 0;
-          transform: none;
-        }
-
-        .timeline-item .dot {
-          left: 0;
-          transform: none;
-        }
+      .swiper-button-disabled {
+        opacity: 0.3;
+        pointer-events: none;
       }
     </style>
   </head>
   <body>
-    <section class="timeline-section">
-      <div class="container">
-        <div class="header-subheader">
-          <h1 class="section-title">Lịch sử hình thành</h1>
-          <div class="sub-header">
-            <p>Viện thẩm mỹ DIVA</p>
-            <p>Tự hào người Việt</p>
-          </div>
+    <!-- Main Swiper -->
+    <div class="swiper main-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
         </div>
-        <div class="timeline-content">
-          <p class="timeline-description">
-            Supraheten sede: preniledes read. Semisk ortad ugon då on
-            benörussade kätyr. Oligt vås pes att biost eurobysm det vill säga
-            pode, vivis.
-          </p>
-          <div class="timeline">
-            <div class="timeline-item">
-              <span class="dot"></span>
-              <span class="year">20xx</span>
-              <div class="popup">
-                <strong>20xx</strong>
-                <p>Khởi đầu hành trình phát triển Viện thẩm mỹ DIVA.</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <span class="dot"></span>
-              <span class="year">20xx</span>
-              <div class="popup">
-                <strong>20xx</strong>
-                <p>Mở rộng hệ thống trên toàn quốc.</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <span class="dot"></span>
-              <span class="year">20xx</span>
-              <div class="popup">
-                <strong>20xx</strong>
-                <p>Đạt cột mốc 100 chi nhánh.</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <span class="dot"></span>
-              <span class="year">20xx</span>
-              <div class="popup">
-                <strong>20xx</strong>
-                <p>Ứng dụng công nghệ hiện đại vào thẩm mỹ.</p>
-              </div>
-            </div>
+        <div class="swiper-slide">
+          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+        </div>
+        <div class="swiper-slide">
+          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+        </div>
+        <div class="swiper-slide">
+          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+
+    <!-- Thumbnail Swiper with arrows -->
+    <div class="thumb-wrapper">
+      <button class="thumb-nav-btn thumb-prev">←</button>
+      <div class="swiper thumb-swiper" thumbsSlider>
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+          </div>
+          <div class="swiper-slide">
+            <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
           </div>
         </div>
       </div>
-    </section>
+      <button class="thumb-nav-btn thumb-next">→</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      const thumbSwiper = new Swiper(".thumb-swiper", {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        watchSlidesProgress: true,
+        navigation: {
+          nextEl: ".thumb-next",
+          prevEl: ".thumb-prev",
+        },
+      });
+
+      const mainSwiper = new Swiper(".main-swiper", {
+        spaceBetween: 10,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        thumbs: {
+          swiper: thumbSwiper,
+        },
+      });
+    </script>
   </body>
 </html>
