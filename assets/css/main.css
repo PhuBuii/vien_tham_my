@@ -1157,12 +1157,6 @@ form {
   font-size: 16px;
   font-weight: 400;
 }
-.timeline-content {
-  margin: auto;
-  margin-top: 30px;
-  display: flex;
-  gap: 150px;
-}
 
 .timeline-description {
   flex: 1;
@@ -1171,61 +1165,82 @@ form {
   color: #333;
   margin-bottom: 30px;
 }
-
-.timeline {
-  flex: 1;
-  position: relative;
+.timeline-desktop {
   display: flex;
-  gap: 145px;
-  height: 60px;
-  border-top: 1px solid #ccc;
+  gap: 150px;
+  align-items: center;
 }
-
+.timeline-bar {
+  flex: 1;
+  display: flex;
+  border-top: 1px solid #ccc;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  height: 60px;
+  width: 100%;
+}
 .timeline-item {
   position: relative;
+  text-align: center;
+  left: -1%;
 }
-
 .timeline-item .dot {
-  width: 8px;
-  height: 8px;
-  background-color: #a86f00;
+  width: 10px;
+  height: 10px;
+  background: #b37917;
   border-radius: 50%;
   position: absolute;
   top: -5px;
-  transform: translateX(-100%);
+  left: 0;
 }
-
 .timeline-item .year {
-  position: absolute;
-  top: -30px;
-  left: 50%;
-  transform: translateX(-50%);
   font-weight: bold;
-  color: #333;
   font-size: 14px;
+  margin-top: -25px;
+  display: block;
 }
-
 .timeline-item .popup {
   position: absolute;
-  top: -130px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 220px;
-  background: white;
-  border-radius: 8px;
+  top: -30px;
+  right: 0px;
+  width: 250px;
+  height: 150px;
+  background: #fff;
   padding: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s ease;
-  font-size: 14px;
-  z-index: 10;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: none;
 }
 
 .timeline-item:hover .popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.timeline-item:hover .popup .dot {
+  position: relative;
+}
+.timeline-mobile {
+  display: none;
+}
+
+/* 
+.timeline-item .popup .dot {
+  top: 0px;
+  position: relative;
+  transform: translateX(0);
+}
+.timeline-item:hover > .dot,
+.timeline-item:hover .year {
+  opacity: 0;
+}
+.timeline-item:hover .popup {
   opacity: 1;
   pointer-events: auto;
-}
+} */
 .license-images {
   display: flex;
   justify-content: center;

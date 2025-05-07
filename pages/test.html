@@ -2,169 +2,197 @@
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <title>Khách hàng đánh giá</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timeline Kết Hợp</title>
     <style>
-      body {
-        font-family: sans-serif;
-        background: linear-gradient(to right, #fce3b6, #fcd58c);
-        color: #333;
-        padding: 60px 20px;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
 
-      .feedback-section {
-        max-width: 1200px;
-        margin: 0 auto;
+      body {
+        font-family: Arial, sans-serif;
+        background: #fffbe6;
+        padding: 40px;
+      }
+
+      .timeline-mobile {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        max-width: 500px;
+        margin: auto;
         position: relative;
       }
 
-      .feedback-heading {
-        color: #b37917;
-        font-size: 64px;
+      .year-label {
         font-weight: bold;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
       }
 
-      .feedback-subheading {
-        color: #b37917;
-        font-size: 16px;
-        margin-bottom: 12px;
-      }
-
-      .feedback-quote {
-        font-size: 80px;
-        color: white;
-        position: absolute;
-        left: -40px;
-        top: 0;
-      }
-
-      .swiper {
-        margin-top: 30px;
-      }
-
-      .swiper-slide {
-        background: transparent;
-        padding: 10px;
-      }
-
-      .feedback-card {
-        background: transparent;
-        max-width: 800px;
-      }
-
-      .feedback-content {
-        font-size: 16px;
-        margin-bottom: 20px;
-      }
-
-      .feedback-user {
+      .year-list-wrapper {
         display: flex;
-        align-items: center;
-        gap: 12px;
+        flex-direction: column;
+        gap: 10px;
       }
 
-      .feedback-user img {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        object-fit: cover;
+      .year-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        transition: transform 0.4s ease;
+        will-change: transform;
       }
 
-      .user-info h4 {
-        font-size: 18px;
-        margin: 0;
+      .year-btn {
+        background: none;
+        border: none;
+        font-size: 16px;
+        text-align: left;
+        cursor: pointer;
+        padding-left: 18px;
+        position: relative;
+        color: #555;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+        height: 40px;
+        line-height: 40px;
       }
 
-      .user-info p {
+      .year-btn.faded {
+        opacity: 0.4;
+      }
+
+      .year-btn.active {
+        font-weight: bold;
+        color: #000;
+      }
+
+      .year-btn.active::before {
+        content: "•";
+        color: #f5a623;
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 20px;
+      }
+
+      .year-details {
+        position: relative;
+        width: 100%;
+        min-height: 140px;
+      }
+
+      .year-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
         font-size: 14px;
-        color: #666;
-        margin: 4px 0;
+        color: #333;
+        line-height: 1.6;
+        pointer-events: none;
       }
 
-      .stars {
-        color: #b37917;
+      .year-content.active {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+        z-index: 1;
       }
     </style>
   </head>
-
   <body>
-    <section class="feedback-section">
-      <div class="feedback-subheading">Đánh giá từ</div>
-      <div class="feedback-heading">Khách hàng</div>
-      <div class="feedback-quote">“</div>
-
-      <div class="swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="feedback-card">
-              <p class="feedback-content">
-                Dịch vụ rất tuyệt vời, da cải thiện rõ rệt chỉ sau 3 buổi!
-              </p>
-              <div class="feedback-user">
-                <img src="../assets/image/avatar1.png" alt="avatar" />
-                <div class="user-info">
-                  <h4>Nguyễn Thị A</h4>
-                  <p>Trải nghiệm dịch vụ: Trị mụn chuyên sâu</p>
-                  <div class="stars">★★★★★</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div class="feedback-card">
-              <p class="feedback-content">
-                Không gian sang trọng, nhân viên dễ thương và chuyên nghiệp.
-              </p>
-              <div class="feedback-user">
-                <img src="../assets/image/avatar2.png" alt="avatar" />
-                <div class="user-info">
-                  <h4>Trần Văn B</h4>
-                  <p>Trải nghiệm dịch vụ: Trẻ hóa làn da</p>
-                  <div class="stars">★★★★☆</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="swiper-slide">
-            <div class="feedback-card">
-              <p class="feedback-content">
-                Rất hài lòng với kết quả sau liệu trình, mình sẽ quay lại tiếp.
-              </p>
-              <div class="feedback-user">
-                <img src="../assets/image/avatar3.png" alt="avatar" />
-                <div class="user-info">
-                  <h4>Lê Thị C</h4>
-                  <p>Trải nghiệm dịch vụ: Triệt lông toàn thân</p>
-                  <div class="stars">★★★★★</div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div class="timeline-mobile">
+      <div class="year-list-wrapper">
+        <p class="year-label">Thời gian</p>
+        <div class="year-list" id="yearList">
+          <button class="year-btn" data-year="2014">2014</button>
+          <button class="year-btn" data-year="2015">2015</button>
+          <button class="year-btn" data-year="2016">2016</button>
+          <button class="year-btn" data-year="2017">2017</button>
+          <button class="year-btn" data-year="2018">2018</button>
+          <button class="year-btn" data-year="2019">2019</button>
+          <button class="year-btn" data-year="2020">2020</button>
+          <button class="year-btn" data-year="2021">2021</button>
         </div>
-
-        <!-- Pagination -->
-        <div class="swiper-pagination"></div>
       </div>
-    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+      <div class="year-details">
+        <div class="year-content" id="y-2014">Nội dung cho năm 2014...</div>
+        <div class="year-content" id="y-2015">Nội dung cho năm 2015...</div>
+        <div class="year-content" id="y-2016">Khởi đầu hành trình...</div>
+        <div class="year-content" id="y-2017">Chuẩn hóa...</div>
+        <div class="year-content" id="y-2018">Mở rộng hệ thống...</div>
+        <div class="year-content" id="y-2019">Cột mốc mới...</div>
+        <div class="year-content" id="y-2020">Phát triển mạnh mẽ...</div>
+        <div class="year-content" id="y-2021">Ứng dụng công nghệ...</div>
+      </div>
+    </div>
+
     <script>
-      new Swiper(".swiper", {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
+      const yearButtons = document.querySelectorAll(".year-btn");
+      const yearList = document.getElementById("yearList");
+      const yearContents = document.querySelectorAll(".year-content");
+      const yearOrder = Array.from(yearButtons).map((btn) =>
+        parseInt(btn.dataset.year)
+      );
+      const visibleCount = 5; // 2 trước, 1 hiện tại, 2 sau
+      const itemHeight = 40;
+
+      function updateYearView(activeYear) {
+        const index = yearOrder.indexOf(activeYear);
+        const total = yearOrder.length;
+
+        let start = index - 2;
+        let end = index + 2;
+
+        if (start < 0) {
+          end += -start;
+          start = 0;
+        }
+        if (end > total - 1) {
+          start -= end - (total - 1);
+          end = total - 1;
+          if (start < 0) start = 0;
+        }
+
+        yearButtons.forEach((btn, i) => {
+          btn.classList.remove("active", "faded");
+
+          if (i >= start && i <= end) {
+            btn.style.display = "block";
+            if (i === index) {
+              btn.classList.add("active");
+            } else if (i === start || i === end) {
+              btn.classList.add("faded");
+            }
+          } else {
+            btn.style.display = "none";
+          }
+        });
+
+        const translateY = start * itemHeight;
+        yearList.style.transform = `translateY(-${translateY}px)`;
+
+        yearContents.forEach((el) => el.classList.remove("active"));
+        const content = document.getElementById(`y-${activeYear}`);
+        if (content) content.classList.add("active");
+      }
+
+      yearButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const year = parseInt(btn.dataset.year);
+          updateYearView(year);
+        });
       });
+
+      // Initialize with default year
+      updateYearView(2016);
     </script>
   </body>
 </html>
