@@ -1,8 +1,31 @@
-@media (max-width: 1680px) {
-  .timeline-section .container,
-  .doctor-section .container,
-  .equipment-section .container {
-    margin-left: 18px;
+@media (max-width: 1920px) {
+  #introduce,
+  #homepage {
+    max-width: 1670px;
+    margin: 0 0 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  #introduce .banner,
+  #homepage .banner {
+    position: relative;
+    width: 100vw;
+    left: 0;
+    transform: translateX(0);
+    margin-left: calc(-1 * (100vw - var(--content-width, 1670px)));
+    z-index: 0;
+  }
+  .form-box {
+    right: 100px;
+  }
+}
+@media (max-width: 1670px) {
+  #introduce .banner,
+  #homepage .banner {
+    position: relative;
+    width: 100vw;
+    margin-left: 0;
+    z-index: 0;
   }
 }
 @media (max-width: 1550px) {
@@ -29,6 +52,9 @@
   }
 }
 @media (max-width: 1200px) {
+  .form-box {
+    right: 50px;
+  }
   .intro-content {
     gap: 60px;
   }
@@ -314,7 +340,7 @@
     justify-content: flex-start;
   }
   .card {
-    min-width: 372px;
+    min-width: 275px;
   }
   ::-webkit-scrollbar {
     display: none;

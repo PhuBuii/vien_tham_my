@@ -1,105 +1,168 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
-    <meta charset="utf-8" />
-    <title>Swiper Scrollbar Fixed Example</title>
+    <meta charset="UTF-8" />
+    <title>Khách hàng đánh giá</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- Swiper CSS -->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
     />
-
     <style>
-      * {
-        box-sizing: border-box;
-      }
-
       body {
-        margin: 0;
-        padding: 0;
         font-family: sans-serif;
-        background: #f6f6f6;
+        background: linear-gradient(to right, #fce3b6, #fcd58c);
+        color: #333;
+        padding: 60px 20px;
       }
 
-      .swiper-container-wrapper {
+      .feedback-section {
+        max-width: 1200px;
+        margin: 0 auto;
         position: relative;
-        width: 100%;
-        padding-bottom: 80px; /* chừa không gian cho scrollbar phía dưới */
+      }
+
+      .feedback-heading {
+        color: #b37917;
+        font-size: 64px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .feedback-subheading {
+        color: #b37917;
+        font-size: 16px;
+        margin-bottom: 12px;
+      }
+
+      .feedback-quote {
+        font-size: 80px;
+        color: white;
+        position: absolute;
+        left: -40px;
+        top: 0;
       }
 
       .swiper {
-        width: 100%;
-        height: 300px;
+        margin-top: 30px;
       }
 
       .swiper-slide {
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        background: transparent;
+        padding: 10px;
+      }
+
+      .feedback-card {
+        background: transparent;
+        max-width: 800px;
+      }
+
+      .feedback-content {
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+
+      .feedback-user {
         display: flex;
-        justify-content: center;
         align-items: center;
-        font-size: 24px;
-        color: #333;
+        gap: 12px;
       }
 
-      /* Scrollbar fixed and centered */
-      .swiper-scrollbar {
-        position: absolute;
-        bottom: 20px;
-        left: 50% !important;
-        transform: translateX(-50%);
-        width: 523px !important;
-        height: 8px;
-        background-color: #ddd;
-        border-radius: 4px;
-        z-index: 10;
+      .feedback-user img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
       }
 
-      .swiper-scrollbar-drag {
-        background-color: #b37917;
-        border-radius: 4px;
+      .user-info h4 {
+        font-size: 18px;
+        margin: 0;
       }
 
-      @media (max-width: 480px) {
-        .swiper-scrollbar {
-          width: 90% !important;
-        }
+      .user-info p {
+        font-size: 14px;
+        color: #666;
+        margin: 4px 0;
+      }
+
+      .stars {
+        color: #b37917;
       }
     </style>
   </head>
 
   <body>
-    <div class="swiper-container-wrapper">
-      <div class="swiper mySwiper">
+    <section class="feedback-section">
+      <div class="feedback-subheading">Đánh giá từ</div>
+      <div class="feedback-heading">Khách hàng</div>
+      <div class="feedback-quote">“</div>
+
+      <div class="swiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">Slide 1</div>
-          <div class="swiper-slide">Slide 2</div>
-          <div class="swiper-slide">Slide 3</div>
-          <div class="swiper-slide">Slide 4</div>
-          <div class="swiper-slide">Slide 5</div>
-          <div class="swiper-slide">Slide 6</div>
+          <div class="swiper-slide">
+            <div class="feedback-card">
+              <p class="feedback-content">
+                Dịch vụ rất tuyệt vời, da cải thiện rõ rệt chỉ sau 3 buổi!
+              </p>
+              <div class="feedback-user">
+                <img src="../assets/image/avatar1.png" alt="avatar" />
+                <div class="user-info">
+                  <h4>Nguyễn Thị A</h4>
+                  <p>Trải nghiệm dịch vụ: Trị mụn chuyên sâu</p>
+                  <div class="stars">★★★★★</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="feedback-card">
+              <p class="feedback-content">
+                Không gian sang trọng, nhân viên dễ thương và chuyên nghiệp.
+              </p>
+              <div class="feedback-user">
+                <img src="../assets/image/avatar2.png" alt="avatar" />
+                <div class="user-info">
+                  <h4>Trần Văn B</h4>
+                  <p>Trải nghiệm dịch vụ: Trẻ hóa làn da</p>
+                  <div class="stars">★★★★☆</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="feedback-card">
+              <p class="feedback-content">
+                Rất hài lòng với kết quả sau liệu trình, mình sẽ quay lại tiếp.
+              </p>
+              <div class="feedback-user">
+                <img src="../assets/image/avatar3.png" alt="avatar" />
+                <div class="user-info">
+                  <h4>Lê Thị C</h4>
+                  <p>Trải nghiệm dịch vụ: Triệt lông toàn thân</p>
+                  <div class="stars">★★★★★</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
       </div>
+    </section>
 
-      <!-- Scrollbar nằm ngoài -->
-      <div class="swiper-scrollbar"></div>
-    </div>
-
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- Swiper Init -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script>
-      const swiper = new Swiper(".mySwiper", {
+      new Swiper(".swiper", {
         slidesPerView: 1,
-        spaceBetween: 20,
-        scrollbar: {
-          el: ".swiper-scrollbar",
-          draggable: true,
-          hide: false,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
         },
       });
     </script>
