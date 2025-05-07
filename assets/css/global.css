@@ -67,16 +67,18 @@ body {
   width: 100%;
   height: 2146px;
   z-index: 0;
+  opacity: 0.4;
   pointer-events: none;
 }
 .background::before {
   content: "";
   position: absolute;
-  top: 0;
+  top: 0px;
+  left: 0;
   width: 100%;
   height: 449px;
+  flex-shrink: 0;
   background: linear-gradient(180deg, #f8cc6d -187.39%, #fff 60.47%), #edecec;
-  opacity: 0.4;
 }
 .background::after {
   content: "";
@@ -86,7 +88,6 @@ body {
   height: 1697px;
   background: linear-gradient(180deg, #fff 9.96%, #f8cc6d 52.51%, #fff 84.63%),
     #edecec;
-  opacity: 0.4;
 }
 
 .post-background {
