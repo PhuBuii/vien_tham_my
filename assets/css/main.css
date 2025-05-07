@@ -187,7 +187,8 @@ section {
 }
 .slider-card img {
   width: 100%;
-  height: 525px;
+  height: 100%;
+  max-height: 525px;
   object-fit: cover;
   display: block;
 }
@@ -315,9 +316,8 @@ section {
 }
 
 .branch-card img {
+  border-radius: 10px;
   width: 100%;
-  height: 175px;
-  align-self: stretch;
   object-fit: cover;
 }
 
@@ -480,7 +480,7 @@ section {
   background: #fffaf0;
   border: 1px solid #f1e3d0;
   border-radius: 10px;
-  padding: 24px;
+  /* padding: 24px; */
 }
 
 .branch-card h4 {
@@ -1161,8 +1161,10 @@ form {
 .timeline-description {
   flex: 1;
   max-width: 500px;
+  color: var(--Wireframe-80, #343a3f);
+
   font-size: 14px;
-  color: #333;
+  font-weight: 500;
   margin-bottom: 30px;
 }
 .timeline-desktop {
@@ -1291,7 +1293,7 @@ form {
 
 .main-swiper img {
   width: 100%;
-  height: 333px;
+  aspect-ratio: 2/1;
 }
 .slide-show {
   position: relative;
@@ -1393,7 +1395,6 @@ form {
 .equipment-section .container {
   position: absolute;
   top: 0;
-  min-height: 1000px;
   height: 100%;
 }
 .equipment-section .container > img {
@@ -1876,4 +1877,10 @@ form {
 .hero-button-prev:hover,
 .hero-button-next:hover {
   background-color: #fff7e2;
+}
+.equipment-section .banner img {
+  max-height: 1000px;
+}
+.branch-near-section .branch-card {
+  padding: 24px;
 }
