@@ -343,6 +343,9 @@
     justify-content: center;
     align-items: center;
   }
+  .thumb-wrapper {
+    margin-top: 11px;
+  }
 }
 @media (max-width: 1024px) {
   .form-section .banner {
@@ -437,7 +440,7 @@
   .swiper-controller {
     right: unset;
     left: 0;
-    top: -45px;
+    top: -37px;
     width: 100%;
   }
   .service-item {
@@ -587,9 +590,16 @@
     display: none;
     grid-template-columns: repeat(2, 1fr);
   }
+  .dot {
+    width: 9px;
+    height: 9px;
+  }
 }
 
 @media (max-width: 876px) {
+  .media-section {
+    padding: 57px 16px;
+  }
   .feedback-background .sub-background img {
     width: 50%;
   }
@@ -605,7 +615,7 @@
     width: 60%;
   }
   .equipment-section .container {
-    min-height: 630px;
+    min-height: 525px;
   }
   .timeline-section .container {
     align-items: flex-start;
@@ -772,6 +782,41 @@
 }
 
 @media (max-width: 576px) {
+  .slider-card img {
+    max-height: 353px;
+  }
+  .news-section .section-title {
+    margin-bottom: 12px;
+  }
+  .intro-branch-wrapper {
+    margin-top: 64px;
+  }
+  .timeline-section {
+    padding-bottom: 17px;
+  }
+  .branch-list {
+    max-height: 350px;
+  }
+  .media-logos img {
+    max-width: 125px;
+  }
+  .media-logos {
+    gap: 32px;
+  }
+  .hero-mobile {
+    display: block;
+  }
+  .hero-desktop {
+    display: none;
+  }
+  .hero-button-prev,
+  .hero-button-next {
+    width: 24px;
+    height: 24px;
+  }
+  .hero-controls {
+    top: -17px;
+  }
   .hero-top {
     font-size: 13px;
   }
@@ -820,7 +865,7 @@
   }
 
   .section-title {
-    font-size: 30px;
+    font-size: 32px;
   }
   .submit-btn,
   .qa-form button {
@@ -834,7 +879,12 @@
   .stat-label {
     font-size: 12px;
   }
-
+  .news-section .slider-dots {
+    display: block;
+  }
+  .search-box {
+    margin-bottom: 16px;
+  }
   .sub-header {
     font-size: 14px;
   }
@@ -873,7 +923,7 @@
     font-size: 32px;
   }
   .form-section {
-    margin-top: 60px;
+    margin-top: 0px;
   }
   .feedback-section .feedback-background,
   .feedback-section .feedback-background > img {
@@ -882,7 +932,10 @@
   .post-content {
     padding: 0 10px;
   }
-  .section-title {
-    font-size: 26px;
+  .equipment-section .container > img {
+    width: 120%;
+  }
+  .equipment-section {
+    overflow: hidden;
   }
 }

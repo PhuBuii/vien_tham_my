@@ -92,7 +92,12 @@ class CustomSlider {
 
   adjustLayout() {
     if (this.isNewsSection) {
-      this.sliderWindow.style.left = "0";
+      const halfCard =
+        (this.cardWidth +
+          this.gap +
+          this.cardWidth / (12 - this.responsiveVisible)) /
+        2;
+      this.sliderWindow.style.left = `${halfCard - 20}px`;
     } else {
       const halfCard =
         (this.cardWidth +

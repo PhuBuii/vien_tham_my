@@ -15,6 +15,7 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0 16px;
 }
 .header-subheader {
   display: flex;
@@ -83,25 +84,56 @@ section {
   grid-template-columns: repeat(3, minmax(0, 460px));
 }
 
-.card {
-  display: flex;
-  max-width: 460px;
-  padding: 40px 41px;
-  flex-direction: column;
-  gap: 20px;
-  border-radius: 10px;
-  background: var(--Default, #fff);
-}
-
 .card:hover {
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
+.card {
+  max-width: 460px;
+  padding: 40px 41px;
+  border-radius: 10px;
+  background: var(--Default, #fff);
+  transition: box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
 
 .card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.card-img.normal-img {
+  opacity: 1;
+  z-index: 1;
+}
+
+.card-img.hover-img {
+  opacity: 0;
+  z-index: 2;
+}
+
+.card:hover .card-img.normal-img {
+  opacity: 0;
+}
+
+.card:hover .card-img.hover-img {
+  opacity: 1;
 }
 
 .card-meta {
@@ -110,6 +142,7 @@ section {
   font-size: 14px;
   color: #333;
   align-items: center;
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 
@@ -222,8 +255,8 @@ section {
   stroke-width: 3px;
   border: none;
   stroke: var(--Gold-main, #b37917);
-  width: 76px;
-  height: 76px;
+  width: 60px;
+  height: 60px;
   border-radius: 999px;
   font-size: 20px;
   display: flex;
@@ -255,7 +288,7 @@ section {
 }
 
 .dot.active {
-  background-color: var(--Gold-main, #b37917);
+  background-color: var(--Gold-main, #b37917) !important;
 }
 
 .branch-wrapper {
@@ -269,6 +302,7 @@ section {
 
 .branch-left {
   flex: 1;
+  padding: 0 16px;
 }
 
 .search-box {
@@ -746,6 +780,12 @@ section {
   font-size: 12px;
   line-height: 120%;
 }
+.author-info p span {
+  color: var(--Gold-main, #b37917);
+}
+.author-info p span:hover {
+  font-weight: 700;
+}
 .qa-form {
   padding: 30px 34px;
   border-radius: 10px;
@@ -1185,6 +1225,7 @@ form {
 .timeline-item {
   position: relative;
   text-align: center;
+  cursor: pointer;
   left: -1%;
 }
 .timeline-item .dot {
@@ -1203,6 +1244,11 @@ form {
   display: block;
 }
 .timeline-item .popup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   position: absolute;
   top: -30px;
   right: 0px;
@@ -1212,37 +1258,25 @@ form {
   padding: 12px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  display: none;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  z-index: 10;
 }
 
 .timeline-item:hover .popup {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
 }
-.timeline-item:hover .popup .dot {
+.timeline-item .popup .dot {
   position: relative;
 }
 .timeline-mobile {
   display: none;
 }
 
-/* 
-.timeline-item .popup .dot {
-  top: 0px;
-  position: relative;
-  transform: translateX(0);
-}
-.timeline-item:hover > .dot,
-.timeline-item:hover .year {
-  opacity: 0;
-}
-.timeline-item:hover .popup {
-  opacity: 1;
-  pointer-events: auto;
-} */
 .license-images {
   display: flex;
   justify-content: center;
@@ -1279,6 +1313,8 @@ form {
 }
 .news-section .slider-dots {
   text-align: left;
+  max-width: 1670px;
+  margin: 22px 0 0 auto;
 }
 .news-section .slider-card.faded {
   opacity: 1 !important;
@@ -1286,9 +1322,6 @@ form {
 
 #doctor-section .dot {
   background-color: var(--Default, #fff);
-}
-#doctor-section .dot.active {
-  background-color: var(--Gold-main, #b37917);
 }
 
 .main-swiper img {
@@ -1894,4 +1927,15 @@ form {
 }
 .form-section {
   margin-top: 130px;
+}
+
+a.card {
+  text-decoration: none;
+}
+.hero-mobile {
+  display: none;
+}
+
+.news-section .dot {
+  background-color: var(--Wireframe-10, #f2f4f8);
 }
