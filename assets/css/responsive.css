@@ -52,8 +52,36 @@
   .slide-show {
     max-width: 600px;
   }
+  .form-box {
+    right: 75px;
+    height: unset;
+    width: unset;
+  }
+  .form-box h2 {
+    font-size: 24px;
+  }
+  .form-box p {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  .form-box form {
+    margin-top: 20px;
+  }
+  .form-section {
+    overflow: hidden;
+  }
+  .form-section img {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 500px;
+    width: unset;
+  }
 }
 @media (max-width: 1200px) {
+  .feedback-quote {
+    left: unset;
+  }
   .equipment-section .section-title {
     margin-bottom: 0;
   }
@@ -283,6 +311,7 @@
     flex-direction: column;
     gap: 20px;
     text-align: center;
+    margin-bottom: 10px;
   }
 
   .heading-desc {
@@ -292,8 +321,144 @@
   .heading-desc p {
     text-align: center;
   }
+  .highlight-section {
+    margin-top: 54px;
+  }
+  .feedback-info .content {
+    padding: 40px;
+  }
+  .feedback-background .sub-background {
+    right: 55px;
+  }
+  .media-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .media-container .media-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .media-logos {
+    justify-content: center;
+    align-items: center;
+  }
 }
 @media (max-width: 1024px) {
+  .form-section .banner {
+    display: none;
+  }
+  .form-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .form-section img {
+    height: unset;
+    width: 100%;
+  }
+  .form-section .form-box {
+    position: relative;
+    max-width: unset;
+    left: unset;
+    right: unset;
+    top: unset;
+    bottom: unset;
+    transform: translateY(0%);
+    width: 100%;
+    border-radius: 0;
+  }
+  .feedback-content {
+    max-width: unset;
+  }
+  .form-box {
+    right: 25px;
+  }
+  .media-title {
+    font-size: 64px;
+  }
+  .feedback-section {
+    margin-top: 80px;
+  }
+  .feedback-heading {
+    font-size: 64px;
+  }
+  .feedback-info .content {
+    padding: 93px 16px;
+    width: 100%;
+  }
+  .feedback-quote {
+    left: 16px;
+    width: 48px;
+  }
+  .feedback-section .feedback-background,
+  .feedback-section .feedback-background > img {
+    height: 1183px;
+  }
+  .feedback-background .sub-background {
+    bottom: 0;
+    right: unset;
+    top: unset;
+    height: unset;
+  }
+  .feedback-background .sub-background img {
+    position: relative;
+    width: 40%;
+    left: 50%;
+    transform: translate(-50%, 5px);
+    height: unset;
+  }
+  .mobile-image {
+    display: block;
+    width: 90%;
+  }
+  .highlight-content {
+    padding: 0 16px;
+  }
+  .column.center {
+    display: none;
+  }
+  .doctor-section .slider {
+    margin-top: 38px;
+  }
+  .hero-title {
+    display: none;
+  }
+  .hero-top {
+    flex-direction: column;
+    gap: 10px;
+    justify-content: flex-start;
+    position: relative;
+    left: -20%;
+  }
+  .form-section .form-box {
+    text-align: center;
+  }
+  .swiper-controller {
+    right: unset;
+    left: 0;
+    top: -45px;
+    width: 100%;
+  }
+  .service-item {
+    height: 327px;
+  }
+  .service-section .service-header {
+    padding: 0 16px;
+  }
+  .service-header .sub-header {
+    margin-bottom: 30px;
+  }
+  .service-header .section-title {
+    margin-bottom: 42px;
+  }
+
+  .service-header .heading-desc {
+    margin-bottom: 24px;
+  }
   .equipment-section .header-subheader {
     position: absolute;
   }
@@ -428,6 +593,9 @@
 }
 
 @media (max-width: 876px) {
+  .feedback-background .sub-background img {
+    width: 50%;
+  }
   .sub-background img {
     width: 100%;
     height: 90%;
@@ -436,6 +604,12 @@
 }
 
 @media (max-width: 768px) {
+  .feedback-background .sub-background img {
+    width: 60%;
+  }
+  .equipment-section .container {
+    min-height: 630px;
+  }
   .timeline-section .container {
     align-items: flex-start;
   }
@@ -594,9 +768,49 @@
   .branch-near-section .branch-card {
     padding: 12px;
   }
+  .media-logos img {
+    max-height: 82px;
+    max-width: 157px;
+  }
 }
 
 @media (max-width: 576px) {
+  .hero-top {
+    font-size: 13px;
+  }
+  .feedback-background .sub-background img {
+    width: 80%;
+  }
+  .service-item {
+    height: 272px;
+  }
+  .feedback-heading {
+    font-size: 48px;
+  }
+  .feedback-subheading,
+  .feedback-content {
+    font-size: 14px;
+  }
+  .feedback-content {
+    margin-left: 93px;
+  }
+  .feedback-card {
+    margin-left: 0;
+  }
+  .service-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .service-list .service-item p {
+    font-size: 16px;
+  }
+  .highlight-item p {
+    font-size: 14px;
+    max-width: 283px;
+    text-align: center;
+  }
+  .highlight-content {
+    flex-direction: column;
+  }
   .slider-window {
     left: 100px !important;
   }
@@ -627,6 +841,12 @@
   .sub-header {
     font-size: 14px;
   }
+  .media-subtitle,
+  .media-desc,
+  .heading-desc p {
+    text-align: center;
+    font-size: 14px;
+  }
   .branch-card p,
   .branch-info span {
     font-size: 10px;
@@ -641,9 +861,27 @@
   .branch-info {
     padding: 0 10px;
   }
+  .thumb-swiper .swiper-slide {
+    height: 59px;
+  }
+  .slide-show .slider-btn {
+    width: 21px;
+    height: 21px;
+  }
 }
 
 @media (max-width: 375px) {
+  .feedback-heading,
+  .media-title {
+    font-size: 32px;
+  }
+  .form-section {
+    margin-top: 60px;
+  }
+  .feedback-section .feedback-background,
+  .feedback-section .feedback-background > img {
+    height: 925px;
+  }
   .post-content {
     padding: 0 10px;
   }
