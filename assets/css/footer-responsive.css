@@ -33,6 +33,7 @@
   .footer-content {
     margin-top: 18px;
     gap: 36px;
+    position: static;
   }
   .footer-logo .logo {
     max-width: 286px;
@@ -53,10 +54,12 @@
     flex-direction: column;
     align-items: center;
     gap: 30px;
+    position: static;
   }
 
   .social-icons {
     justify-content: center;
+    position: static;
   }
   .footer-bottom {
     padding: 41px 31px;
@@ -72,6 +75,7 @@
     text-align: center;
     font-size: 16px;
     font-weight: 700;
+    /* position: static; */
   }
   .dva-facebook {
     max-width: max-content;

@@ -16,7 +16,7 @@
     z-index: 0;
   }
   .form-box {
-    right: 100px;
+    right: 310px;
   }
 }
 @media (max-width: 1670px) {
@@ -461,6 +461,7 @@
   }
   .equipment-section .header-subheader {
     position: absolute;
+    z-index: 10;
   }
   .equipment-section .container {
     position: relative;
@@ -469,8 +470,8 @@
   .equipment-section .heading-desc {
     display: none;
   }
-  .equipment-section > .banner img {
-    display: none;
+  .highlight-section {
+    top: unset;
   }
   .slide-show {
     max-width: unset;
@@ -478,6 +479,7 @@
   .equipment-section .container > img {
     display: block;
     inset: 0;
+    position: relative;
   }
   .equipment-section .slide-show {
     margin-top: 134px;
@@ -593,6 +595,15 @@
   .dot {
     width: 9px;
     height: 9px;
+  }
+  .doctor-section .heading-desc p {
+    left: unset;
+  }
+  .header-right {
+    margin-left: 81px;
+  }
+  .equipment-section > img {
+    display: none;
   }
 }
 
